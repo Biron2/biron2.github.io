@@ -27,19 +27,25 @@
       margin-bottom: 20px;
     }
     h1 { color: #111; }
-    a { color: #0073ff; text-decoration: none; }
+    a { text-decoration: none; }
     .playstore {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       margin-top: 15px;
       padding: 10px 20px;
       background: #34A853;
       color: white;
       border-radius: 8px;
-      text-decoration: none;
       font-weight: bold;
+      transition: background 0.3s;
     }
     .playstore:hover {
       background: #2c8c46;
+    }
+    .playstore img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
     }
   </style>
 </head>
@@ -56,8 +62,9 @@
     <p>Email: <a href="mailto:greatbiron@gmail.com">greatbiron@gmail.com</a></p>
     <p>Telegram: <a href="https://t.me/Biron1gg">@Biron1gg</a></p>
 
-    <!-- Ссылка на Play Market -->
+    <!-- Кнопка Play Market с иконкой -->
     <a href="https://play.google.com/store/apps/dev?id=5305394579066389868" target="_blank" class="playstore">
+      <img src="playstore_logo.png" alt="Play Store Icon">
       Visit my Play Market
     </a>
   </div>
