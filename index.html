@@ -2,9 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Логотип -->
-  <img src="logo.png" alt="Biron Apps Logo" style="width:100px; height:100px; border-radius:20px; margin-bottom:20px;">
-
   <title>Biron Apps — Mobile App and Game Developer</title>
   <style>
     body { 
@@ -23,19 +20,46 @@
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
+    .logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
     h1 { color: #111; }
     a { color: #0073ff; text-decoration: none; }
+    .playstore {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #34A853;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .playstore:hover {
+      background: #2c8c46;
+    }
   </style>
 </head>
 <body>
   <div class="card">
+    <!-- Логотип -->
+    <img src="logo.png" alt="Biron Apps Logo" class="logo">
+
     <h1>Biron Apps</h1>
-    <p>Hi! I'm <b> Biron</b>, a mobile app and game developer</p>
+    <p>Hi! I'm <b>Biron</b>, a mobile app and game developer</p>
     <p>I work with Android, Unity and network games.</p>
 
     <h3>Contacts</h3>
     <p>Email: <a href="mailto:greatbiron@gmail.com">greatbiron@gmail.com</a></p>
     <p>Telegram: <a href="https://t.me/Biron1gg">@Biron1gg</a></p>
+
+    <!-- Ссылка на Play Market -->
+    <a href="https://play.google.com/store/apps/dev?id=5305394579066389868" target="_blank" class="playstore">
+      Visit my Play Market
+    </a>
   </div>
 </body>
 </html>
