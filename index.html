@@ -1,72 +1,913 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" data-lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Biron Apps — Mobile App and Game Developer</title>
-  <style>
-    body { 
-      font-family: Arial, sans-serif; 
-      margin: 0; 
-      padding: 40px; 
-      background: #f7f7f7; 
-      color: #333;
-      text-align: center;
-    }
-    .card {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    .logo {
-      width: 100px;
-      height: 100px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-    h1 { color: #111; }
-    a { text-decoration: none; }
-    .playstore {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #34A853;
-      color: white;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .playstore:hover {
-      background: #2c8c46;
-    }
-    .playstore img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biron Apps — разработка приложений и игр</title>
+<meta name="description" content="Biron Apps — разработка Android-приложений на Java (Android Studio), кроссплатформенных приложений на Flutter (Dart), сайтов и игр на Unity для ПК и телефонов, в том числе онлайн и оффлайн.">
+<meta name="theme-color" content="#0b0f17">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Biron Apps — разработка приложений и игр">
+<meta property="og:description" content="Android (Java), Flutter (Dart), веб-разработка, игры на Unity для ПК и мобильных устройств — онлайн и оффлайн.">
+<meta property="og:image" content="https://biron2.github.io/logo.png">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="apple-touch-icon" href="logo.png">
+
+<style>
+/* ============ 1. Базовые токены ============ */
+:root{
+  --bg:#0b0f17;
+  --bg-soft:#101725;
+  --surface:rgba(255,255,255,.045);
+  --surface-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.09);
+  --text:#e8eef6;
+  --muted:#9fb0c6;
+  --brand:#3b82f6;
+  --brand-2:#22d3ee;
+  --brand-3:#8b5cf6;
+  --grad:linear-gradient(120deg,var(--brand) 0%,var(--brand-2) 55%,var(--brand-3) 100%);
+  --green:#177a3c;
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow:0 10px 30px -12px rgba(0,0,0,.65);
+  --maxw:1120px;
+  --header-h:60px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* мягкое свечение фона */
+body::before{
+  content:'';
+  position:fixed;
+  inset:-30% -20% auto -20%;
+  height:70vh;
+  background:
+    radial-gradient(45% 55% at 20% 20%,rgba(59,130,246,.28),transparent 70%),
+    radial-gradient(40% 50% at 80% 10%,rgba(139,92,246,.22),transparent 70%),
+    radial-gradient(35% 45% at 50% 0%,rgba(34,211,238,.16),transparent 70%);
+  filter:blur(20px);
+  pointer-events:none;
+  z-index:-1;
+}
+
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+
+h1,h2,h3{line-height:1.2;margin:0 0 .5em;letter-spacing:-.02em;font-weight:750}
+h1{font-size:clamp(1.75rem,6vw,3.1rem)}
+h2{font-size:clamp(1.35rem,4.4vw,2rem)}
+h3{font-size:clamp(1.05rem,3.2vw,1.2rem)}
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(16px,5vw,32px)}
+section{padding-block:clamp(48px,9vw,88px);position:relative}
+section + section{border-top:1px solid rgba(255,255,255,.055)}
+
+.grad-text{
+  background:var(--grad);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brand-2);
+  margin-bottom:14px;
+}
+.eyebrow::before{
+  content:'';
+  width:26px;height:2px;border-radius:2px;background:var(--grad);
+}
+
+.lead{color:var(--muted);font-size:clamp(1rem,2.6vw,1.12rem)}
+.muted{color:var(--muted)}
+.center{text-align:center}
+
+/* ============ 2. Кнопки ============ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:13px 22px;
+  min-height:50px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  font-weight:650;
+  font-size:.98rem;
+  cursor:pointer;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:hover{transform:translateY(-2px);background:var(--surface-strong);border-color:rgba(255,255,255,.2)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn:focus-visible{outline:2px solid var(--brand-2);outline-offset:3px}
+.btn svg{width:20px;height:20px;flex:none}
+
+.btn-primary{
+  background:var(--grad);
+  border-color:transparent;
+  color:#04121f;
+  box-shadow:0 10px 26px -12px rgba(59,130,246,.9);
+}
+.btn-primary:hover{background:var(--grad);filter:brightness(1.08)}
+
+.btn-play{background:#177a3c;border-color:transparent;color:#fff}
+.btn-play:hover{filter:brightness(1.08)}
+
+.btn-ghost{background:transparent}
+
+/* ============ 3. Шапка ============ */
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(11,15,23,.72);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  padding-top:env(safe-area-inset-top);
+}
+.header__inner{
+  min-height:var(--header-h);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:750;letter-spacing:-.01em}
+.brand img{width:32px;height:32px;border-radius:9px}
+.brand span{font-size:1.02rem;white-space:nowrap}
+
+.nav{display:none;gap:4px;margin-left:auto}
+.nav a{
+  padding:8px 12px;
+  border-radius:10px;
+  color:var(--muted);
+  font-size:.92rem;
+  font-weight:600;
+  transition:color .18s ease,background .18s ease;
+}
+.nav a:hover{color:var(--text);background:var(--surface)}
+
+.header__actions{display:flex;align-items:center;gap:8px}
+
+.lang-switch{
+  display:inline-flex;
+  padding:3px;
+  border-radius:999px;
+  background:var(--surface);
+  border:1px solid var(--border);
+}
+.lang-switch button{
+  border:0;
+  background:transparent;
+  padding:6px 11px;
+  min-height:34px;
+  border-radius:999px;
+  font-size:.82rem;
+  font-weight:700;
+  color:var(--muted);
+  cursor:pointer;
+  transition:background .18s ease,color .18s ease;
+}
+.lang-switch button[aria-pressed="true"]{
+  background:var(--grad);
+  color:#04121f;
+}
+
+.burger{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;height:42px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  cursor:pointer;
+}
+.burger span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:.25s}
+.burger span + span{margin-top:4px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.mobile-menu{
+  display:none;
+  border-top:1px solid var(--border);
+  padding:10px 0 16px;
+}
+.mobile-menu a{
+  display:block;
+  padding:12px 14px;
+  border-radius:12px;
+  color:var(--muted);
+  font-weight:600;
+}
+.mobile-menu a:hover{background:var(--surface);color:var(--text)}
+.mobile-menu.open{display:block}
+
+/* ============ 4. Hero ============ */
+.hero{
+  padding-block:clamp(40px,8vw,72px) clamp(44px,9vw,80px);
+  text-align:center;
+}
+.avatar{
+  width:clamp(96px,26vw,140px);
+  height:clamp(96px,26vw,140px);
+  margin:0 auto 22px;
+  border-radius:28px;
+  object-fit:cover;
+  box-shadow:0 18px 46px -18px rgba(59,130,246,.9);
+  border:1px solid var(--border);
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 15px;
+  border-radius:999px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  font-size:.82rem;
+  font-weight:650;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#34d399;
+  box-shadow:0 0 0 4px rgba(52,211,153,.18);
+  animation:pulse 2.2s infinite;
+}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(52,211,153,0)}}
+
+.hero .lead{max-width:60ch;margin-inline:auto}
+.hero__cta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+  margin-top:28px;
+}
+.hero__cta .btn{flex:1 1 220px;max-width:320px}
+
+.platforms{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:34px;
+}
+.chip{
+  padding:8px 14px;
+  border-radius:999px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  font-size:.86rem;
+  font-weight:600;
+  color:var(--muted);
+}
+
+/* ============ 5. Карточки навыков ============ */
+.grid{
+  display:grid;
+  gap:14px;
+  grid-template-columns:1fr;
+}
+.card{
+  padding:22px;
+  border-radius:var(--radius);
+  background:var(--surface);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  transition:transform .22s ease,border-color .22s ease,background .22s ease;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2);background:var(--surface-strong)}
+
+.card__icon{
+  width:46px;height:46px;
+  display:grid;place-items:center;
+  border-radius:13px;
+  background:var(--grad);
+  color:#04121f;
+  margin-bottom:14px;
+  flex:none;
+}
+.card__icon svg{width:24px;height:24px}
+.card h3{margin-bottom:6px}
+.card p{color:var(--muted);font-size:.96rem}
+
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tag{
+  font-size:.75rem;
+  font-weight:650;
+  padding:5px 10px;
+  border-radius:8px;
+  background:rgba(59,130,246,.14);
+  border:1px solid rgba(59,130,246,.24);
+  color:#bcd6ff;
+  font-family:ui-monospace,'SF Mono',Consolas,monospace;
+}
+
+/* ============ 6. Обо мне / шаги ============ */
+.split{display:grid;gap:24px;grid-template-columns:1fr;align-items:center}
+
+.facts{display:grid;gap:12px;grid-template-columns:1fr}
+.fact{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:16px;
+  border-radius:var(--radius-sm);
+  background:var(--surface);
+  border:1px solid var(--border);
+}
+.fact b{display:block;margin-bottom:2px}
+.fact p{font-size:.94rem;color:var(--muted);margin:0}
+.fact__num{
+  flex:none;
+  width:36px;height:36px;
+  display:grid;place-items:center;
+  border-radius:11px;
+  background:var(--surface-strong);
+  border:1px solid var(--border);
+  font-weight:800;
+  font-size:.9rem;
+  background-image:var(--grad);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.steps{display:grid;gap:14px;grid-template-columns:1fr;counter-reset:s}
+.step{
+  padding:20px;
+  border-radius:var(--radius);
+  background:var(--surface);
+  border:1px solid var(--border);
+}
+.step::before{
+  counter-increment:s;
+  content:counter(s);
+  display:grid;place-items:center;
+  width:32px;height:32px;
+  margin-bottom:12px;
+  border-radius:10px;
+  background:var(--grad);
+  color:#04121f;
+  font-weight:800;
+  font-size:.9rem;
+}
+.step h3{margin-bottom:6px}
+.step p{color:var(--muted);font-size:.95rem;margin:0}
+
+/* ============ 7. Контакты ============ */
+.contact-card{
+  padding:clamp(24px,5vw,40px);
+  border-radius:24px;
+  background:linear-gradient(150deg,rgba(59,130,246,.16),rgba(139,92,246,.1));
+  border:1px solid rgba(255,255,255,.14);
+  text-align:center;
+}
+.links{display:grid;gap:10px;margin-top:26px;text-align:left}
+.link-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:15px 18px;
+  min-height:60px;
+  border-radius:var(--radius-sm);
+  background:var(--surface);
+  border:1px solid var(--border);
+  transition:transform .18s ease,background .18s ease;
+}
+.link-row:hover{transform:translateY(-2px);background:var(--surface-strong)}
+.link-row svg{width:22px;height:22px;flex:none;color:var(--brand-2)}
+.link-row span{display:block;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.link-row b{font-size:1rem;word-break:break-word}
+.link-row .arrow{margin-left:auto;color:var(--muted);font-size:1.2rem;flex:none}
+
+.footer{
+  padding:28px 0 40px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:.88rem;
+}
+.footer__inner{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+
+/* ============ 8. Анимации появления ============ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ 9. Адаптив ============ */
+@media (min-width:600px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .links{grid-template-columns:repeat(2,1fr)}
+}
+
+/* планшет: горизонтальное меню вместо бургера */
+@media (min-width:760px){
+  .nav{display:flex}
+  .burger{display:none}
+  .mobile-menu{display:none !important}
+}
+
+@media (min-width:900px){
+  :root{--header-h:68px}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .split{grid-template-columns:1fr 1fr;gap:40px}
+  .hero__cta .btn{flex:0 1 auto}
+  .links{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (hover:none){
+  .btn:hover,.card:hover,.link-row:hover{transform:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
+
 <body>
-  <div class="card">
-    <!-- Логотип -->
-    <img src="logo.png" alt="Biron Apps Logo" class="logo">
 
-    <h1>Biron Apps</h1>
-    <p>Hi! I'm <b>Biron</b>, a mobile app and game developer</p>
-    <p>I work with Android, Unity and network games.</p>
-
-    <h3>Contacts</h3>
-    <p>Email: <a href="mailto:greatbiron@gmail.com">greatbiron@gmail.com</a></p>
-    <p>Telegram: <a href="https://t.me/Biron1gg">@Biron1gg</a></p>
-
-    <!-- Кнопка Play Market с иконкой -->
-    <a href="https://play.google.com/store/apps/dev?id=5305394579066389868" target="_blank" class="playstore">
-      <img src="playstore_logo.png" alt="Play Store Icon">
-      Visit my Play Market
+<!-- ============ ШАПКА ============ -->
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="brand" href="#top">
+      <img src="logo.png" alt="Biron Apps">
+      <span>Biron&nbsp;Apps</span>
     </a>
+
+    <nav class="nav" id="nav">
+      <a href="#about" data-ru="Обо мне" data-en="About">Обо мне</a>
+      <a href="#skills" data-ru="Навыки" data-en="Skills">Навыки</a>
+      <a href="#process" data-ru="Как работаю" data-en="Process">Как работаю</a>
+      <a href="#contact" data-ru="Контакты" data-en="Contact">Контакты</a>
+    </nav>
+
+    <div class="header__actions">
+      <div class="lang-switch" role="group" aria-label="Language / Язык">
+        <button type="button" data-set-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
+
+  <div class="wrap">
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about" data-ru="Обо мне" data-en="About">Обо мне</a>
+      <a href="#skills" data-ru="Навыки" data-en="Skills">Навыки</a>
+      <a href="#process" data-ru="Как работаю" data-en="Process">Как работаю</a>
+      <a href="#contact" data-ru="Контакты" data-en="Contact">Контакты</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <img class="avatar" src="logo.png" alt="Логотип Biron Apps">
+
+    <div class="badge">
+      <span class="dot"></span>
+      <span data-ru="Открыт к новым проектам" data-en="Open to new projects">Открыт к новым проектам</span>
+    </div>
+
+    <h1>
+      <span data-ru="Привет, я " data-en="Hi, I'm ">Привет, я </span><span class="grad-text">Biron</span><br>
+      <span data-ru="разработчик приложений и игр" data-en="app &amp; game developer">разработчик приложений и игр</span>
+    </h1>
+
+    <p class="lead" data-ru="Делаю мобильные приложения, сайты и игры: нативные приложения для Android на Java в Android Studio, кроссплатформенные приложения на Flutter (Dart), веб-проекты в Visual Studio Code и игры на Unity — для телефона, ПК, в оффлайне и онлайне."
+       data-en="I build mobile apps, websites and games: native Android apps in Java with Android Studio, cross-platform apps with Flutter (Dart), web projects in Visual Studio Code, and Unity games for mobile, PC — both offline and online.">
+      Делаю мобильные приложения, сайты и игры: нативные приложения для Android на Java в Android Studio, кроссплатформенные приложения на Flutter (Dart), веб-проекты в Visual Studio Code и игры на Unity — для телефона, ПК, в оффлайне и онлайне.
+    </p>
+
+    <div class="hero__cta">
+      <a class="btn btn-primary" href="#contact" data-ru="Обсудить проект" data-en="Discuss a project">Обсудить проект</a>
+      <a class="btn btn-play" href="https://play.google.com/store/apps/dev?id=5305394579066389868" target="_blank" rel="noopener">
+        <img src="playstore_logo.png" alt="" width="24" height="24" style="width:24px;height:24px;object-fit:contain">
+        <span data-ru="Мои приложения в Play Market" data-en="My apps on Play Market">Мои приложения в Play Market</span>
+      </a>
+    </div>
+
+    <div class="platforms">
+      <span class="chip" data-ru="Android" data-en="Android">Android</span>
+      <span class="chip" data-ru="iOS" data-en="iOS">iOS</span>
+      <span class="chip" data-ru="Веб" data-en="Web">Веб</span>
+      <span class="chip" data-ru="Windows PC" data-en="Windows PC">Windows PC</span>
+      <span class="chip" data-ru="Unity · C#" data-en="Unity · C#">Unity · C#</span>
+      <span class="chip" data-ru="Java · Dart · HTML/CSS/JS" data-en="Java · Dart · HTML/CSS/JS">Java · Dart · HTML/CSS/JS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ОБО МНЕ ============ -->
+<section id="about">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="eyebrow" data-ru="Обо мне" data-en="About me">Обо мне</div>
+      <h2 data-ru="Один разработчик — много платформ" data-en="One developer — many platforms">Один разработчик — много платформ</h2>
+      <p data-ru="Меня зовут Бирон. Я занимаюсь разработкой приложений и игр и беру проекты «под ключ»: от идеи и структуры до сборки, публикации и поддержки. Не ограничиваюсь одной технологией — выбираю стек под задачу, чтобы результат работал быстро и выглядел актуально."
+         data-en="My name is Biron. I develop apps and games and take projects end-to-end: from the idea and structure to the build, release and support. I don't limit myself to a single technology — I pick the stack that fits the task so the result works fast and looks modern.">
+        Меня зовут Бирон. Я занимаюсь разработкой приложений и игр и беру проекты «под ключ»: от идеи и структуры до сборки, публикации и поддержки. Не ограничиваюсь одной технологией — выбираю стек под задачу, чтобы результат работал быстро и выглядел актуально.
+      </p>
+      <p data-ru="Работаю в Android Studio на Java — делаю нативные Android-приложения. В Visual Studio Code могу разработать сайт или веб-приложение, а на Dart и Flutter — приложение сразу и под Android, и под iOS из одной кодовой базы. Для игр использую Unity на C#: делаю игры и для телефонов, и для ПК, как оффлайн, так и онлайн с мультиплеером."
+         data-en="I work in Android Studio with Java to build native Android apps. In Visual Studio Code I can build a website or web app, and with Dart and Flutter — an app for both Android and iOS from a single codebase. For games I use Unity with C#: games for phones and PC, both offline and online with multiplayer.">
+        Работаю в Android Studio на Java — делаю нативные Android-приложения. В Visual Studio Code могу разработать сайт или веб-приложение, а на Dart и Flutter — приложение сразу и под Android, и под iOS из одной кодовой базы. Для игр использую Unity на C#: делаю игры и для телефонов, и для ПК, как оффлайн, так и онлайн с мультиплеером.
+      </p>
+      <p data-ru="Свободно общаюсь на русском и английском — могу вести проект и документацию на обоих языках."
+         data-en="I communicate in Russian and English and can run a project and its documentation in either language.">
+        Свободно общаюсь на русском и английском — могу вести проект и документацию на обоих языках.
+      </p>
+    </div>
+
+    <div class="facts reveal">
+      <div class="fact">
+        <div class="fact__num">01</div>
+        <div>
+          <b data-ru="Нативная Android-разработка" data-en="Native Android development">Нативная Android-разработка</b>
+          <p data-ru="Java в Android Studio: интерфейс, логика, работа с данными и API." data-en="Java in Android Studio: UI, logic, data and API work.">Java в Android Studio: интерфейс, логика, работа с данными и API.</p>
+        </div>
+      </div>
+      <div class="fact">
+        <div class="fact__num">02</div>
+        <div>
+          <b data-ru="Один код — Android и iOS" data-en="One codebase — Android and iOS">Один код — Android и iOS</b>
+          <p data-ru="Flutter и Dart в Visual Studio Code: быстрее и дешевле двух отдельных приложений." data-en="Flutter &amp; Dart in Visual Studio Code: faster and cheaper than two separate apps.">Flutter и Dart в Visual Studio Code: быстрее и дешевле двух отдельных приложений.</p>
+        </div>
+      </div>
+      <div class="fact">
+        <div class="fact__num">03</div>
+        <div>
+          <b data-ru="Сайты и веб-интерфейсы" data-en="Websites and web interfaces">Сайты и веб-интерфейсы</b>
+          <p data-ru="HTML, CSS и JavaScript: лендинги, сайты, адаптивная вёрстка под телефоны." data-en="HTML, CSS and JavaScript: landing pages, sites, responsive layouts.">HTML, CSS и JavaScript: лендинги, сайты, адаптивная вёрстка под телефоны.</p>
+        </div>
+      </div>
+      <div class="fact">
+        <div class="fact__num">04</div>
+        <div>
+          <b data-ru="Игры на Unity" data-en="Unity games">Игры на Unity</b>
+          <p data-ru="C#, 2D и 3D, под ПК и мобильные устройства — оффлайн и онлайн." data-en="C#, 2D and 3D, for PC and mobile — offline and online.">C#, 2D и 3D, под ПК и мобильные устройства — оффлайн и онлайн.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ НАВЫКИ ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:34px">
+      <div class="eyebrow" data-ru="Что я умею" data-en="What I do">Что я умею</div>
+      <h2 data-ru="Инструменты и технологии" data-en="Tools &amp; technologies">Инструменты и технологии</h2>
+      <p class="lead" style="max-width:56ch;margin-inline:auto"
+         data-ru="Полный цикл разработки: идея, прототип, код, сборка и публикация в Google Play."
+         data-en="Full development cycle: idea, prototype, code, build and release on Google Play.">
+        Полный цикл разработки: идея, прототип, код, сборка и публикация в Google Play.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <!-- Android Studio -->
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 5.5h6"/>
+          </svg>
+        </div>
+        <h3 data-ru="Приложения для Android" data-en="Android apps">Приложения для Android</h3>
+        <p data-ru="Разрабатываю нативные приложения на Java в Android Studio: экраны, бизнес-логика, работа с интернетом и локальным хранилищем, авторизация, публикация в Google Play."
+           data-en="I build native apps in Java with Android Studio: screens, business logic, networking and local storage, authentication, and Play Store release.">
+          Разрабатываю нативные приложения на Java в Android Studio: экраны, бизнес-логика, работа с интернетом и локальным хранищем, авторизация, публикация в Google Play.
+        </p>
+        <div class="tags">
+          <span class="tag">Android Studio</span><span class="tag">Java</span><span class="tag">Gradle</span><span class="tag">Git</span>
+        </div>
+      </article>
+
+      <!-- Flutter -->
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.8 21 8l-9 5.2L3 8l9-5.2Z"/><path d="M3 12.6 12 17.8l9-5.2"/><path d="M3 17 12 22.2 21 17"/>
+          </svg>
+        </div>
+        <h3 data-ru="Flutter · Android и iOS" data-en="Flutter · Android &amp; iOS">Flutter · Android и iOS</h3>
+        <p data-ru="Пишу приложения на Dart и Flutter в Visual Studio Code. Один проект собирается сразу под Android и iOS — с красивым, плавным интерфейсом и быстрыми обновлениями."
+           data-en="I write apps in Dart with Flutter inside Visual Studio Code. A single project builds for both Android and iOS, with a smooth, polished UI.">
+          Пишу приложения на Dart и Flutter в Visual Studio Code. Один проект собирается сразу под Android и iOS — с красивым, плавным интерфейсом и быстрыми обновлениями.
+        </p>
+        <div class="tags">
+          <span class="tag">VS Code</span><span class="tag">Dart</span><span class="tag">Flutter</span><span class="tag">iOS</span>
+        </div>
+      </article>
+
+      <!-- Web -->
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m8.5 8.5-4 3.5 4 3.5"/><path d="m15.5 8.5 4 3.5-4 3.5"/><path d="m13.5 5-3 14"/>
+          </svg>
+        </div>
+        <h3 data-ru="Сайты и веб-приложения" data-en="Websites &amp; web apps">Сайты и веб-приложения</h3>
+        <p data-ru="Разрабатываю сайты в Visual Studio Code на HTML, CSS и JavaScript: лендинги, промо-страницы, портфолио и сервисы. Делаю адаптивную вёрстку, чтобы одинаково хорошо работало и на телефоне, и на ПК."
+           data-en="I build websites in Visual Studio Code with HTML, CSS and JavaScript: landing pages, promo sites, portfolios and services — fully responsive for phone and desktop.">
+          Разрабатываю сайты в Visual Studio Code на HTML, CSS и JavaScript: лендинги, промо-страницы, портфолио и сервисы. Делаю адаптивную вёрстку, чтобы одинаково хорошо работало и на телефоне, и на ПК.
+        </p>
+        <div class="tags">
+          <span class="tag">VS Code</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+        </div>
+      </article>
+
+      <!-- Unity PC/mobile -->
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.5 8h9a4.5 4.5 0 0 1 4.4 3.6l.8 3.7A2.5 2.5 0 0 1 19.3 18H4.7a2.5 2.5 0 0 1-2.4-2.7l.8-3.7A4.5 4.5 0 0 1 7.5 8Z"/>
+            <path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="12" r=".9" fill="currentColor"/><circle cx="18.2" cy="14" r=".9" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3 data-ru="Игры на Unity: ПК и телефон" data-en="Unity games: PC &amp; mobile">Игры на Unity: ПК и телефон</h3>
+        <p data-ru="Разрабатываю игры на Unity на C# — 2D и 3D. Собираю одну игру сразу под ПК (Windows) и под телефоны: Android и iOS, с удобным управлением под тачскрин."
+           data-en="I develop Unity games in C# — 2D and 3D. One build for PC (Windows) and for phones: Android and iOS, with touch-friendly controls.">
+          Разрабатываю игры на Unity на C# — 2D и 3D. Собираю одну игру сразу под ПК (Windows) и под телефоны: Android и iOS, с удобным управлением под тачскрин.
+        </p>
+        <div class="tags">
+          <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">2D / 3D</span><span class="tag">Android</span>
+        </div>
+      </article>
+
+      <!-- Offline -->
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a4.5 4.5 0 0 1 4.5 4.5c0 1.4-.6 2.4-1.3 3.3-.6.8-1.2 1.5-1.2 2.7"/><path d="M14 16.5h4"/><circle cx="14" cy="20" r="1.6"/>
+          </svg>
+        </div>
+        <h3 data-ru="Оффлайн-игры" data-en="Offline games">Оффлайн-игры</h3>
+        <p data-ru="Делаю одиночные игры, которые работают без интернета: сохранение прогресса, уровни, инвентарь, персонаж и система заданий — всё считается локально на устройстве."
+           data-en="I build single-player games that work without internet: save system, levels, inventory, character and quests — all handled locally on the device.">
+          Делаю одиночные игры, которые работают без интернета: сохранение прогресса, уровни, инвентарь, персонаж и система заданий — всё считается локально на устройстве.
+        </p>
+        <div class="tags">
+          <span class="tag">Unity</span><span class="tag">Local save</span><span class="tag">UI / UX</span>
+        </div>
+      </article>
+
+      <!-- Online -->
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="2.4"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M4.9 19.1a10 10 0 0 1 0-14.2"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2"/>
+          </svg>
+        </div>
+        <h3 data-ru="Онлайн-игры и мультиплеер" data-en="Online &amp; multiplayer games">Онлайн-игры и мультиплеер</h3>
+        <p data-ru="Делаю онлайн-игры в Unity: сетевой мультиплеер, синхронизация игроков, серверная логика, логины и рейтинги. Игра работает как для одиночной, так и для сетевой компании."
+           data-en="I build online Unity games: network multiplayer, player sync, server-side logic, logins and leaderboards — playable solo or with friends online.">
+          Делаю онлайн-игры в Unity: сетевой мультиплеер, синхронизация игроков, серверная логика, логины и рейтинги. Игра работает как для одиночной, так и для сетевой компании.
+        </p>
+        <div class="tags">
+          <span class="tag">Unity Netcode</span><span class="tag">Photon</span><span class="tag">Server</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ПРОЦЕСС ============ -->
+<section id="process">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:34px">
+      <div class="eyebrow" data-ru="Процесс" data-en="Process">Процесс</div>
+      <h2 data-ru="Как устроена работа" data-en="How I work">Как устроена работа</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <h3 data-ru="Идея и обсуждение" data-en="Idea &amp; discussion">Идея и обсуждение</h3>
+        <p data-ru="Разбираем задачу, подбираем технологию под платформу и фиксируем, что именно должно получиться." data-en="We break down the task, choose the technology for the platform and define exactly what has to be delivered.">Разбираем задачу, подбираем технологию под платформу и фиксируем, что именно должно получиться.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-ru="Прототип" data-en="Prototype">Прототип</h3>
+        <p data-ru="Собираю рабочий прототип интерфейса или основной механики, чтобы вы увидели результат до основной разработки." data-en="I assemble a working UI prototype or core mechanic so you see the result before the main build.">Собираю рабочий прототип интерфейса или основной механики, чтобы вы увидели результат до основной разработки.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-ru="Разработка" data-en="Development">Разработка</h3>
+        <p data-ru="Пишу код, настраиваю базу данных и сети, тестирую на разных экранах и устройствах." data-en="I write the code, set up database and networking, and test across screen sizes and devices.">Пишу код, настраиваю базу данных и сети, тестирую на разных экранах и устройствах.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-ru="Выпуск и поддержка" data-en="Release &amp; support">Выпуск и поддержка</h3>
+        <p data-ru="Собираю релиз, публикую в Google Play и помогаю с обновлениями и доработками после запуска." data-en="I build the release, publish it on Google Play and help with updates and improvements after launch.">Собираю релиз, публикую в Google Play и помогаю с обновлениями и доработками после запуска.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КОНТАКТЫ ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div class="eyebrow" data-ru="Контакты" data-en="Contact">Контакты</div>
+      <h2 data-ru="Давайте обсудим ваш проект" data-en="Let's talk about your project">Давайте обсудим ваш проект</h2>
+      <p class="lead" data-ru="Опишите идею приложения, сайта или игры — отвечу в Telegram или на почту и подскажу, как лучше её реализовать."
+         data-en="Describe your app, website or game idea — I'll reply on Telegram or email and suggest the best way to build it.">
+        Опишите идею приложения, сайта или игры — отвечу в Telegram или на почту и подскажу, как лучше её реализовать.
+      </p>
+
+      <div class="links">
+        <a class="link-row" href="mailto:greatbiron@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/>
+          </svg>
+          <div>
+            <span data-ru="Email" data-en="Email">Email</span>
+            <b>greatbiron@gmail.com</b>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="link-row" href="https://t.me/Biron1gg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 4.5 2.8 11.3c-1 .4-1 1.7 0 2l4.6 1.5 1.8 5.4c.3.9 1.4 1.1 2 .4l2.5-2.7 4.7 3.4c.8.6 1.9.1 2-.8l3-14.5c.2-1-.8-1.8-1.7-1.5Z"/>
+          </svg>
+          <div>
+            <span data-ru="Telegram" data-en="Telegram">Telegram</span>
+            <b>@Biron1gg</b>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="link-row" href="https://play.google.com/store/apps/dev?id=5305394579066389868" target="_blank" rel="noopener">
+          <img src="playstore_logo.png" alt="" width="24" height="24" style="width:24px;height:24px;object-fit:contain">
+          <div>
+            <span data-ru="Google Play" data-en="Google Play">Google Play</span>
+            <b data-ru="Все мои приложения" data-en="All my apps">Все мои приложения</b>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="link-row" href="https://github.com/biron2" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-4.3 1.3-4.3-2.2-6-2.6m12 5.1v-3.6c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 3.2 5.5 3.5 5.5 3.5a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2v3.7"/>
+          </svg>
+          <div>
+            <span>GitHub</span>
+            <b>biron2</b>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div>
+      <strong>Biron Apps</strong> — <span data-ru="разработка приложений и игр" data-en="app &amp; game development">разработка приложений и игр</span>
+    </div>
+    <div>© <span id="year">2026</span> · <a href="https://t.me/Biron1gg" style="color:var(--brand-2)">@Biron1gg</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Переключатель языка RU / EN ---------- */
+  var root = document.documentElement;
+  var TITLES = {
+    ru: 'Biron Apps — разработка приложений и игр',
+    en: 'Biron Apps — App & Game Developer'
+  };
+
+  function setLang(lang) {
+    document.querySelectorAll('[data-ru][data-en]').forEach(function (el) {
+      el.innerHTML = el.dataset[lang];
+    });
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.setLang === lang));
+    });
+    root.lang = lang;
+    root.dataset.lang = lang;
+    document.title = TITLES[lang];
+    try { localStorage.setItem('biron-lang', lang); } catch (e) {}
+  }
+
+  document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
+    btn.addEventListener('click', function () { setLang(btn.dataset.setLang); });
+  });
+
+  var stored = null;
+  try { stored = localStorage.getItem('biron-lang'); } catch (e) {}
+  var initial = stored || ((navigator.language || 'ru').slice(0, 2).toLowerCase() === 'en' ? 'en' : 'ru');
+  setLang(initial === 'en' ? 'en' : 'ru');
+
+  /* ---------- Мобильное меню ---------- */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+
+  burger.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+  });
+
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!menu.classList.contains('open')) return;
+    if (!menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+  });
+
+  /* ---------- Плавный скролл с учётом липкой шапки ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = link.getAttribute('href');
+      if (id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - 70;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      closeMenu();
+      history.replaceState(null, '', id);
+    });
+  });
+
+  /* ---------- Появление блоков при скролле ---------- */
+  var revealables = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry, i) {
+        if (!entry.isIntersecting) return;
+        setTimeout(function () { entry.target.classList.add('in'); }, Math.min(i * 70, 280));
+        io.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    revealables.forEach(function (el) { io.observe(el); });
+  } else {
+    revealables.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Год в подвале ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+
 </body>
 </html>
