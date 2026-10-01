@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru" data-lang="ru">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Biron Apps — разработка приложений и игр</title>
-<meta name="description" content="Biron Apps — разработка Android-приложений на Java (Android Studio), кроссплатформенных приложений на Flutter (Dart), сайтов и игр на Unity для ПК и телефонов, в том числе онлайн и оффлайн.">
+<title>Biron Apps — Unity Developer: Games, Apps &amp; Websites</title>
+<meta name="description" content="Biron Apps is a Unity developer making 2D and 3D games for PC, Android and iOS — both offline and online multiplayer. Also Java and Flutter apps, plus simple websites.">
 <meta name="theme-color" content="#0b0f17">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Biron Apps — разработка приложений и игр">
-<meta property="og:description" content="Android (Java), Flutter (Dart), веб-разработка, игры на Unity для ПК и мобильных устройств — онлайн и оффлайн.">
+<meta property="og:title" content="Biron Apps — Unity Developer: Games, Apps &amp; Websites">
+<meta property="og:description" content="Unity games for PC and mobile — offline and multiplayer online. Secondary work: Java and Flutter apps, plus simple websites.">
 <meta property="og:image" content="https://biron2.github.io/logo.png">
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="apple-touch-icon" href="logo.png">
@@ -140,7 +140,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 }
 .btn-primary:hover{background:var(--grad);filter:brightness(1.08)}
 
-.btn-play{background:#177a3c;border-color:transparent;color:#fff}
+.btn-play{background:var(--green);border-color:transparent;color:#fff}
 .btn-play:hover{filter:brightness(1.08)}
 
 .btn-ghost{background:transparent}
@@ -313,16 +313,37 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 }
 .card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2);background:var(--surface-strong)}
 
+.card__top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
 .card__icon{
   width:46px;height:46px;
   display:grid;place-items:center;
   border-radius:13px;
   background:var(--grad);
   color:#04121f;
-  margin-bottom:14px;
   flex:none;
 }
 .card__icon svg{width:24px;height:24px}
+
+/* уровень: основное / дополнительно / базовый уровень */
+.level{
+  font-size:.7rem;
+  font-weight:750;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  padding:6px 11px;
+  border-radius:999px;
+  white-space:nowrap;
+}
+.level-main{background:rgba(34,211,238,.14);border:1px solid rgba(34,211,238,.32);color:#a5f0fb}
+.level-also{background:var(--surface);border:1px solid var(--border);color:var(--muted)}
+.level-base{background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.3);color:#fcd34d}
+
 .card h3{margin-bottom:6px}
 .card p{color:var(--muted);font-size:.96rem}
 
@@ -340,6 +361,16 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 
 /* ============ 6. Обо мне / шаги ============ */
 .split{display:grid;gap:24px;grid-template-columns:1fr;align-items:center}
+
+.note{
+  margin-top:22px;
+  padding:18px 20px;
+  border-radius:var(--radius-sm);
+  background:rgba(234,179,8,.08);
+  border:1px solid rgba(234,179,8,.28);
+}
+.note b{display:block;color:#fcd34d;margin-bottom:4px;font-size:.98rem}
+.note p{margin:0;color:var(--muted);font-size:.95rem}
 
 .facts{display:grid;gap:12px;grid-template-columns:1fr}
 .fact{
@@ -475,16 +506,16 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
     </a>
 
     <nav class="nav" id="nav">
-      <a href="#about" data-ru="Обо мне" data-en="About">Обо мне</a>
-      <a href="#skills" data-ru="Навыки" data-en="Skills">Навыки</a>
-      <a href="#process" data-ru="Как работаю" data-en="Process">Как работаю</a>
-      <a href="#contact" data-ru="Контакты" data-en="Contact">Контакты</a>
+      <a href="#about" data-ru="Обо мне" data-en="About">About</a>
+      <a href="#skills" data-ru="Навыки" data-en="Skills">Skills</a>
+      <a href="#process" data-ru="Как работаю" data-en="Process">Process</a>
+      <a href="#contact" data-ru="Контакты" data-en="Contact">Contact</a>
     </nav>
 
     <div class="header__actions">
       <div class="lang-switch" role="group" aria-label="Language / Язык">
-        <button type="button" data-set-lang="ru" aria-pressed="true">RU</button>
-        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+        <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
       </div>
       <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
@@ -494,10 +525,10 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 
   <div class="wrap">
     <div class="mobile-menu" id="mobile-menu">
-      <a href="#about" data-ru="Обо мне" data-en="About">Обо мне</a>
-      <a href="#skills" data-ru="Навыки" data-en="Skills">Навыки</a>
-      <a href="#process" data-ru="Как работаю" data-en="Process">Как работаю</a>
-      <a href="#contact" data-ru="Контакты" data-en="Contact">Контакты</a>
+      <a href="#about" data-ru="Обо мне" data-en="About">About</a>
+      <a href="#skills" data-ru="Навыки" data-en="Skills">Skills</a>
+      <a href="#process" data-ru="Как работаю" data-en="Process">Process</a>
+      <a href="#contact" data-ru="Контакты" data-en="Contact">Contact</a>
     </div>
   </div>
 </header>
@@ -507,38 +538,41 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="wrap">
-    <img class="avatar" src="logo.png" alt="Логотип Biron Apps">
+    <img class="avatar" src="logo.png" alt="Biron Apps logo">
 
     <div class="badge">
       <span class="dot"></span>
-      <span data-ru="Открыт к новым проектам" data-en="Open to new projects">Открыт к новым проектам</span>
+      <span data-ru="Основной стек — Unity" data-en="Main stack — Unity">Main stack — Unity</span>
     </div>
 
     <h1>
-      <span data-ru="Привет, я " data-en="Hi, I'm ">Привет, я </span><span class="grad-text">Biron</span><br>
-      <span data-ru="разработчик приложений и игр" data-en="app &amp; game developer">разработчик приложений и игр</span>
+      <span data-ru="Привет, я " data-en="Hi, I'm ">Hi, I'm </span><span class="grad-text">Biron</span><br>
+      <span data-ru="разработчик игр на Unity" data-en="Unity game developer">Unity game developer</span>
     </h1>
 
-    <p class="lead" data-ru="Делаю мобильные приложения, сайты и игры: нативные приложения для Android на Java в Android Studio, кроссплатформенные приложения на Flutter (Dart), веб-проекты в Visual Studio Code и игры на Unity — для телефона, ПК, в оффлайне и онлайне."
-       data-en="I build mobile apps, websites and games: native Android apps in Java with Android Studio, cross-platform apps with Flutter (Dart), web projects in Visual Studio Code, and Unity games for mobile, PC — both offline and online.">
-      Делаю мобильные приложения, сайты и игры: нативные приложения для Android на Java в Android Studio, кроссплатформенные приложения на Flutter (Dart), веб-проекты в Visual Studio Code и игры на Unity — для телефона, ПК, в оффлайне и онлайне.
+    <p class="lead" data-ru="В основном я делаю игры на Unity: 2D и 3D для ПК и телефонов — оффлайн и онлайн с мультиплеером. Дополнительно беру приложения: нативные на Java в Android Studio и кроссплатформенные на Flutter (Dart). Сайты тоже делаю, но в веб-разработке у меня меньше всего опыта."
+       data-en="Mostly I build games in Unity: 2D and 3D for PC and phones — both offline and online with multiplayer. On top of that I take app projects: native ones in Java with Android Studio and cross-platform ones in Flutter (Dart). I build websites too, but web development is where I have the least experience.">
+      Mostly I build games in Unity: 2D and 3D for PC and phones — both offline and online with multiplayer. On top of that I take app projects: native ones in Java with Android Studio and cross-platform ones in Flutter (Dart). I build websites too, but web development is where I have the least experience.
     </p>
 
     <div class="hero__cta">
-      <a class="btn btn-primary" href="#contact" data-ru="Обсудить проект" data-en="Discuss a project">Обсудить проект</a>
+      <a class="btn btn-primary" href="#contact" data-ru="Обсудить проект" data-en="Discuss a project">Discuss a project</a>
       <a class="btn btn-play" href="https://play.google.com/store/apps/dev?id=5305394579066389868" target="_blank" rel="noopener">
         <img src="playstore_logo.png" alt="" width="24" height="24" style="width:24px;height:24px;object-fit:contain">
-        <span data-ru="Мои приложения в Play Market" data-en="My apps on Play Market">Мои приложения в Play Market</span>
+        <span data-ru="Мои приложения в Play Market" data-en="My apps on Play Market">My apps on Play Market</span>
       </a>
     </div>
 
     <div class="platforms">
+      <span class="chip" data-ru="Unity · C#" data-en="Unity · C#">Unity · C#</span>
+      <span class="chip" data-ru="2D / 3D" data-en="2D / 3D">2D / 3D</span>
+      <span class="chip" data-ru="ПК и телефоны" data-en="PC &amp; mobile">PC &amp; mobile</span>
+      <span class="chip" data-ru="Оффлайн и онлайн" data-en="Offline &amp; online">Offline &amp; online</span>
       <span class="chip" data-ru="Android" data-en="Android">Android</span>
       <span class="chip" data-ru="iOS" data-en="iOS">iOS</span>
-      <span class="chip" data-ru="Веб" data-en="Web">Веб</span>
-      <span class="chip" data-ru="Windows PC" data-en="Windows PC">Windows PC</span>
-      <span class="chip" data-ru="Unity · C#" data-en="Unity · C#">Unity · C#</span>
-      <span class="chip" data-ru="Java · Dart · HTML/CSS/JS" data-en="Java · Dart · HTML/CSS/JS">Java · Dart · HTML/CSS/JS</span>
+      <span class="chip" data-ru="Java · Android Studio" data-en="Java · Android Studio">Java · Android Studio</span>
+      <span class="chip" data-ru="Flutter · Dart" data-en="Flutter · Dart">Flutter · Dart</span>
+      <span class="chip" data-ru="Сайты — базово" data-en="Websites — basic">Websites — basic</span>
     </div>
   </div>
 </section>
@@ -547,49 +581,61 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 <section id="about">
   <div class="wrap split">
     <div class="reveal">
-      <div class="eyebrow" data-ru="Обо мне" data-en="About me">Обо мне</div>
-      <h2 data-ru="Один разработчик — много платформ" data-en="One developer — many platforms">Один разработчик — много платформ</h2>
-      <p data-ru="Меня зовут Бирон. Я занимаюсь разработкой приложений и игр и беру проекты «под ключ»: от идеи и структуры до сборки, публикации и поддержки. Не ограничиваюсь одной технологией — выбираю стек под задачу, чтобы результат работал быстро и выглядел актуально."
-         data-en="My name is Biron. I develop apps and games and take projects end-to-end: from the idea and structure to the build, release and support. I don't limit myself to a single technology — I pick the stack that fits the task so the result works fast and looks modern.">
-        Меня зовут Бирон. Я занимаюсь разработкой приложений и игр и беру проекты «под ключ»: от идеи и структуры до сборки, публикации и поддержки. Не ограничиваюсь одной технологией — выбираю стек под задачу, чтобы результат работал быстро и выглядел актуально.
+      <div class="eyebrow" data-ru="Обо мне" data-en="About me">About me</div>
+      <h2 data-ru="Основное — это Unity" data-en="Unity is my main thing">Unity is my main thing</h2>
+      <p data-ru="Меня зовут Бирон. Основное, чем я занимаюсь, — игры на Unity на C#. Это та область, в которой я сильнее всего: довожу игру от идеи и прототипа до готовой сборки под ПК, Android и iOS."
+         data-en="My name is Biron. What I mainly do is games in Unity with C#. That's the area I'm strongest in: I take a game from the idea and the prototype all the way to a finished build for PC, Android and iOS.">
+        My name is Biron. What I mainly do is games in Unity with C#. That's the area I'm strongest in: I take a game from the idea and the prototype all the way to a finished build for PC, Android and iOS.
       </p>
-      <p data-ru="Работаю в Android Studio на Java — делаю нативные Android-приложения. В Visual Studio Code могу разработать сайт или веб-приложение, а на Dart и Flutter — приложение сразу и под Android, и под iOS из одной кодовой базы. Для игр использую Unity на C#: делаю игры и для телефонов, и для ПК, как оффлайн, так и онлайн с мультиплеером."
-         data-en="I work in Android Studio with Java to build native Android apps. In Visual Studio Code I can build a website or web app, and with Dart and Flutter — an app for both Android and iOS from a single codebase. For games I use Unity with C#: games for phones and PC, both offline and online with multiplayer.">
-        Работаю в Android Studio на Java — делаю нативные Android-приложения. В Visual Studio Code могу разработать сайт или веб-приложение, а на Dart и Flutter — приложение сразу и под Android, и под iOS из одной кодовой базы. Для игр использую Unity на C#: делаю игры и для телефонов, и для ПК, как оффлайн, так и онлайн с мультиплеером.
+      <p data-ru="Делаю и оффлайн-игры — сохранения, уровни, персонаж, инвентарь, — и онлайн-игры с мультиплеером, синхронизацией игроков и рейтингами. Один проект могу собрать сразу и под телефон, и под ПК."
+         data-en="I build both offline games — saves, levels, character, inventory — and online games with multiplayer, player sync and leaderboards. A single project can build for both phone and PC.">
+        I build both offline games — saves, levels, character, inventory — and online games with multiplayer, player sync and leaderboards. A single project can build for both phone and PC.
       </p>
-      <p data-ru="Свободно общаюсь на русском и английском — могу вести проект и документацию на обоих языках."
-         data-en="I communicate in Russian and English and can run a project and its documentation in either language.">
-        Свободно общаюсь на русском и английском — могу вести проект и документацию на обоих языках.
+      <p data-ru="Помимо Unity я делаю мобильные приложения: нативные на Java в Android Studio и кроссплатформенные на Dart и Flutter в Visual Studio Code — одна кодовая база, сразу под Android и iOS."
+         data-en="Besides Unity I build mobile apps: native ones in Java with Android Studio, and cross-platform ones in Dart with Flutter inside Visual Studio Code — one codebase for Android and iOS.">
+        Besides Unity I build mobile apps: native ones in Java with Android Studio, and cross-platform ones in Dart with Flutter inside Visual Studio Code — one codebase for Android and iOS.
       </p>
+      <p data-ru="Сайты на HTML и CSS я тоже делаю, но честно скажу: в веб-разработке я не сильный специалист. Беру в основном простые сайты и лендинги."
+         data-en="I do build websites with HTML and CSS, but let me be honest: I'm not a strong web developer. I mainly take on simple sites and landing pages.">
+        I do build websites with HTML and CSS, but let me be honest: I'm not a strong web developer. I mainly take on simple sites and landing pages.
+      </p>
+
+      <div class="note">
+        <b data-ru="Честно про сложный веб" data-en="Honest note about complex web work">Honest note about complex web work</b>
+        <p data-ru="Если задача сложная — интернет-магазин, портал, CMS, нестандартная серверная часть — скажите сразу. Я предупрежу заранее: возьму её только вместе с партнёром или передам отдельному веб-разработчику, чтобы вы не потратили время и деньги."
+           data-en="If the task is complex — an online store, a portal, a CMS, a non-standard backend — tell me upfront. I'll warn you in advance: I'll only take it together with a partner or hand it over to a dedicated web developer, so you don't waste time and money.">
+          If the task is complex — an online store, a portal, a CMS, a non-standard backend — tell me upfront. I'll warn you in advance: I'll only take it together with a partner or hand it over to a dedicated web developer, so you don't waste time and money.
+        </p>
+      </div>
     </div>
 
     <div class="facts reveal">
       <div class="fact">
         <div class="fact__num">01</div>
         <div>
-          <b data-ru="Нативная Android-разработка" data-en="Native Android development">Нативная Android-разработка</b>
-          <p data-ru="Java в Android Studio: интерфейс, логика, работа с данными и API." data-en="Java in Android Studio: UI, logic, data and API work.">Java в Android Studio: интерфейс, логика, работа с данными и API.</p>
+          <b data-ru="Игры на Unity" data-en="Unity games">Unity games</b>
+          <p data-ru="Основное направление: C#, 2D и 3D, сборка под ПК, Android и iOS." data-en="Main direction: C#, 2D and 3D, builds for PC, Android and iOS.">Main direction: C#, 2D and 3D, builds for PC, Android and iOS.</p>
         </div>
       </div>
       <div class="fact">
         <div class="fact__num">02</div>
         <div>
-          <b data-ru="Один код — Android и iOS" data-en="One codebase — Android and iOS">Один код — Android и iOS</b>
-          <p data-ru="Flutter и Dart в Visual Studio Code: быстрее и дешевле двух отдельных приложений." data-en="Flutter &amp; Dart in Visual Studio Code: faster and cheaper than two separate apps.">Flutter и Dart в Visual Studio Code: быстрее и дешевле двух отдельных приложений.</p>
+          <b data-ru="Оффлайн и онлайн" data-en="Offline and online">Offline and online</b>
+          <p data-ru="Одиночные игры с прогрессом и сетевые игры с мультиплеером и рейтингами." data-en="Single-player games with progression and network games with multiplayer and leaderboards.">Single-player games with progression and network games with multiplayer and leaderboards.</p>
         </div>
       </div>
       <div class="fact">
         <div class="fact__num">03</div>
         <div>
-          <b data-ru="Сайты и веб-интерфейсы" data-en="Websites and web interfaces">Сайты и веб-интерфейсы</b>
-          <p data-ru="HTML, CSS и JavaScript: лендинги, сайты, адаптивная вёрстка под телефоны." data-en="HTML, CSS and JavaScript: landing pages, sites, responsive layouts.">HTML, CSS и JavaScript: лендинги, сайты, адаптивная вёрстка под телефоны.</p>
+          <b data-ru="Приложения: Java и Flutter" data-en="Apps: Java and Flutter">Apps: Java and Flutter</b>
+          <p data-ru="Нативные приложения для Android и кроссплатформенные под Android и iOS." data-en="Native Android apps and cross-platform apps for Android and iOS.">Native Android apps and cross-platform apps for Android and iOS.</p>
         </div>
       </div>
       <div class="fact">
         <div class="fact__num">04</div>
         <div>
-          <b data-ru="Игры на Unity" data-en="Unity games">Игры на Unity</b>
-          <p data-ru="C#, 2D и 3D, под ПК и мобильные устройства — оффлайн и онлайн." data-en="C#, 2D and 3D, for PC and mobile — offline and online.">C#, 2D и 3D, под ПК и мобильные устройства — оффлайн и онлайн.</p>
+          <b data-ru="Сайты — базово" data-en="Websites — basic level">Websites — basic level</b>
+          <p data-ru="Простые адаптивные сайты и лендинги. Не основной профиль, беру не все задачи." data-en="Simple responsive sites and landing pages. Not my main profile — I don't take on every task.">Simple responsive sites and landing pages. Not my main profile — I don't take on every task.</p>
         </div>
       </div>
     </div>
@@ -600,117 +646,135 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 <section id="skills">
   <div class="wrap">
     <div class="center reveal" style="margin-bottom:34px">
-      <div class="eyebrow" data-ru="Что я умею" data-en="What I do">Что я умею</div>
-      <h2 data-ru="Инструменты и технологии" data-en="Tools &amp; technologies">Инструменты и технологии</h2>
+      <div class="eyebrow" data-ru="Что я умею" data-en="What I do">What I do</div>
+      <h2 data-ru="Инструменты и технологии" data-en="Tools &amp; technologies">Tools &amp; technologies</h2>
       <p class="lead" style="max-width:56ch;margin-inline:auto"
-         data-ru="Полный цикл разработки: идея, прототип, код, сборка и публикация в Google Play."
-         data-en="Full development cycle: idea, prototype, code, build and release on Google Play.">
-        Полный цикл разработки: идея, прототип, код, сборка и публикация в Google Play.
+         data-ru="Unity — моя основная специализация и то, что я делаю лучше всего. Приложения тоже делаю, но опыта в них заметно меньше, а веб — самый слабый пункт."
+         data-en="Unity is my main specialty and what I do best. I also build apps, but I have noticeably less experience there, and web is my weakest area.">
+        Unity is my main specialty and what I do best. I also build apps, but I have noticeably less experience there, and web is my weakest area.
       </p>
     </div>
 
     <div class="grid">
 
-      <!-- Android Studio -->
+      <!-- 1. Unity -->
       <article class="card reveal">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 5.5h6"/>
-          </svg>
+        <div class="card__top">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7.5 8h9a4.5 4.5 0 0 1 4.4 3.6l.8 3.7A2.5 2.5 0 0 1 19.3 18H4.7a2.5 2.5 0 0 1-2.4-2.7l.8-3.7A4.5 4.5 0 0 1 7.5 8Z"/>
+              <path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="12" r=".9" fill="currentColor"/><circle cx="18.2" cy="14" r=".9" fill="currentColor"/>
+            </svg>
+          </div>
+          <span class="level level-main" data-ru="Основное" data-en="Main">Main</span>
         </div>
-        <h3 data-ru="Приложения для Android" data-en="Android apps">Приложения для Android</h3>
-        <p data-ru="Разрабатываю нативные приложения на Java в Android Studio: экраны, бизнес-логика, работа с интернетом и локальным хранилищем, авторизация, публикация в Google Play."
-           data-en="I build native apps in Java with Android Studio: screens, business logic, networking and local storage, authentication, and Play Store release.">
-          Разрабатываю нативные приложения на Java в Android Studio: экраны, бизнес-логика, работа с интернетом и локальным хранищем, авторизация, публикация в Google Play.
-        </p>
-        <div class="tags">
-          <span class="tag">Android Studio</span><span class="tag">Java</span><span class="tag">Gradle</span><span class="tag">Git</span>
-        </div>
-      </article>
-
-      <!-- Flutter -->
-      <article class="card reveal">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2.8 21 8l-9 5.2L3 8l9-5.2Z"/><path d="M3 12.6 12 17.8l9-5.2"/><path d="M3 17 12 22.2 21 17"/>
-          </svg>
-        </div>
-        <h3 data-ru="Flutter · Android и iOS" data-en="Flutter · Android &amp; iOS">Flutter · Android и iOS</h3>
-        <p data-ru="Пишу приложения на Dart и Flutter в Visual Studio Code. Один проект собирается сразу под Android и iOS — с красивым, плавным интерфейсом и быстрыми обновлениями."
-           data-en="I write apps in Dart with Flutter inside Visual Studio Code. A single project builds for both Android and iOS, with a smooth, polished UI.">
-          Пишу приложения на Dart и Flutter в Visual Studio Code. Один проект собирается сразу под Android и iOS — с красивым, плавным интерфейсом и быстрыми обновлениями.
-        </p>
-        <div class="tags">
-          <span class="tag">VS Code</span><span class="tag">Dart</span><span class="tag">Flutter</span><span class="tag">iOS</span>
-        </div>
-      </article>
-
-      <!-- Web -->
-      <article class="card reveal">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m8.5 8.5-4 3.5 4 3.5"/><path d="m15.5 8.5 4 3.5-4 3.5"/><path d="m13.5 5-3 14"/>
-          </svg>
-        </div>
-        <h3 data-ru="Сайты и веб-приложения" data-en="Websites &amp; web apps">Сайты и веб-приложения</h3>
-        <p data-ru="Разрабатываю сайты в Visual Studio Code на HTML, CSS и JavaScript: лендинги, промо-страницы, портфолио и сервисы. Делаю адаптивную вёрстку, чтобы одинаково хорошо работало и на телефоне, и на ПК."
-           data-en="I build websites in Visual Studio Code with HTML, CSS and JavaScript: landing pages, promo sites, portfolios and services — fully responsive for phone and desktop.">
-          Разрабатываю сайты в Visual Studio Code на HTML, CSS и JavaScript: лендинги, промо-страницы, портфолио и сервисы. Делаю адаптивную вёрстку, чтобы одинаково хорошо работало и на телефоне, и на ПК.
-        </p>
-        <div class="tags">
-          <span class="tag">VS Code</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-        </div>
-      </article>
-
-      <!-- Unity PC/mobile -->
-      <article class="card reveal">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7.5 8h9a4.5 4.5 0 0 1 4.4 3.6l.8 3.7A2.5 2.5 0 0 1 19.3 18H4.7a2.5 2.5 0 0 1-2.4-2.7l.8-3.7A4.5 4.5 0 0 1 7.5 8Z"/>
-            <path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="12" r=".9" fill="currentColor"/><circle cx="18.2" cy="14" r=".9" fill="currentColor"/>
-          </svg>
-        </div>
-        <h3 data-ru="Игры на Unity: ПК и телефон" data-en="Unity games: PC &amp; mobile">Игры на Unity: ПК и телефон</h3>
-        <p data-ru="Разрабатываю игры на Unity на C# — 2D и 3D. Собираю одну игру сразу под ПК (Windows) и под телефоны: Android и iOS, с удобным управлением под тачскрин."
-           data-en="I develop Unity games in C# — 2D and 3D. One build for PC (Windows) and for phones: Android and iOS, with touch-friendly controls.">
-          Разрабатываю игры на Unity на C# — 2D и 3D. Собираю одну игру сразу под ПК (Windows) и под телефоны: Android и iOS, с удобным управлением под тачскрин.
+        <h3 data-ru="Игры на Unity: ПК и телефон" data-en="Unity games: PC &amp; mobile">Unity games: PC &amp; mobile</h3>
+        <p data-ru="Это моя основная работа: игры на Unity на C#, 2D и 3D. Собираю одну игру сразу под ПК (Windows) и под телефоны — Android и iOS, с удобным управлением под тачскрин."
+           data-en="This is my main work: games in Unity with C#, 2D and 3D. One build for PC (Windows) and for phones — Android and iOS, with touch-friendly controls.">
+          This is my main work: games in Unity with C#, 2D and 3D. One build for PC (Windows) and for phones — Android and iOS, with touch-friendly controls.
         </p>
         <div class="tags">
           <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">2D / 3D</span><span class="tag">Android</span>
         </div>
       </article>
 
-      <!-- Offline -->
+      <!-- 2. Оффлайн -->
       <article class="card reveal">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3a4.5 4.5 0 0 1 4.5 4.5c0 1.4-.6 2.4-1.3 3.3-.6.8-1.2 1.5-1.2 2.7"/><path d="M14 16.5h4"/><circle cx="14" cy="20" r="1.6"/>
-          </svg>
+        <div class="card__top">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a4.5 4.5 0 0 1 4.5 4.5c0 1.4-.6 2.4-1.3 3.3-.6.8-1.2 1.5-1.2 2.7"/><path d="M14 16.5h4"/><circle cx="14" cy="20" r="1.6"/>
+            </svg>
+          </div>
+          <span class="level level-main" data-ru="Основное" data-en="Main">Main</span>
         </div>
-        <h3 data-ru="Оффлайн-игры" data-en="Offline games">Оффлайн-игры</h3>
-        <p data-ru="Делаю одиночные игры, которые работают без интернета: сохранение прогресса, уровни, инвентарь, персонаж и система заданий — всё считается локально на устройстве."
-           data-en="I build single-player games that work without internet: save system, levels, inventory, character and quests — all handled locally on the device.">
-          Делаю одиночные игры, которые работают без интернета: сохранение прогресса, уровни, инвентарь, персонаж и система заданий — всё считается локально на устройстве.
+        <h3 data-ru="Оффлайн-игры" data-en="Offline games">Offline games</h3>
+        <p data-ru="Делаю одиночные игры на Unity, которые работают без интернета: сохранение прогресса, уровни, инвентарь, персонаж и система заданий — всё считается локально на устройстве."
+           data-en="I build single-player Unity games that work without internet: save system, levels, inventory, character and quests — all handled locally on the device.">
+          I build single-player Unity games that work without internet: save system, levels, inventory, character and quests — all handled locally on the device.
         </p>
         <div class="tags">
           <span class="tag">Unity</span><span class="tag">Local save</span><span class="tag">UI / UX</span>
         </div>
       </article>
 
-      <!-- Online -->
+      <!-- 3. Онлайн -->
       <article class="card reveal">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="2.4"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M4.9 19.1a10 10 0 0 1 0-14.2"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2"/>
-          </svg>
+        <div class="card__top">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2.4"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M4.9 19.1a10 10 0 0 1 0-14.2"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2"/>
+            </svg>
+          </div>
+          <span class="level level-main" data-ru="Основное" data-en="Main">Main</span>
         </div>
-        <h3 data-ru="Онлайн-игры и мультиплеер" data-en="Online &amp; multiplayer games">Онлайн-игры и мультиплеер</h3>
-        <p data-ru="Делаю онлайн-игры в Unity: сетевой мультиплеер, синхронизация игроков, серверная логика, логины и рейтинги. Игра работает как для одиночной, так и для сетевой компании."
-           data-en="I build online Unity games: network multiplayer, player sync, server-side logic, logins and leaderboards — playable solo or with friends online.">
-          Делаю онлайн-игры в Unity: сетевой мультиплеер, синхронизация игроков, серверная логика, логины и рейтинги. Игра работает как для одиночной, так и для сетевой компании.
+        <h3 data-ru="Онлайн-игры и мультиплеер" data-en="Online &amp; multiplayer games">Online &amp; multiplayer games</h3>
+        <p data-ru="Онлайн-игры на Unity: сетевой мультиплеер, синхронизация игроков, серверная логика, логины и рейтинги. Игра работает как для одиночной, так и для сетевой компании."
+           data-en="Online Unity games: network multiplayer, player sync, server-side logic, logins and leaderboards — playable solo or with friends online.">
+          Online Unity games: network multiplayer, player sync, server-side logic, logins and leaderboards — playable solo or with friends online.
         </p>
         <div class="tags">
           <span class="tag">Unity Netcode</span><span class="tag">Photon</span><span class="tag">Server</span>
+        </div>
+      </article>
+
+      <!-- 4. Android -->
+      <article class="card reveal">
+        <div class="card__top">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 5.5h6"/>
+            </svg>
+          </div>
+          <span class="level level-also" data-ru="Дополнительно" data-en="Secondary">Secondary</span>
+        </div>
+        <h3 data-ru="Приложения для Android" data-en="Android apps">Android apps</h3>
+        <p data-ru="Разрабатываю нативные приложения на Java в Android Studio: экраны, бизнес-логика, работа с интернетом и локальным хранилищем, авторизация, публикация в Google Play. Опыта здесь меньше, чем в Unity, но задачи беру."
+           data-en="I build native apps in Java with Android Studio: screens, business logic, networking and local storage, authentication, Play Store release. I have less experience here than with Unity, but I do take on projects.">
+          I build native apps in Java with Android Studio: screens, business logic, networking and local storage, authentication, Play Store release. I have less experience here than with Unity, but I do take on projects.
+        </p>
+        <div class="tags">
+          <span class="tag">Android Studio</span><span class="tag">Java</span><span class="tag">Gradle</span><span class="tag">Git</span>
+        </div>
+      </article>
+
+      <!-- 5. Flutter -->
+      <article class="card reveal">
+        <div class="card__top">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.8 21 8l-9 5.2L3 8l9-5.2Z"/><path d="M3 12.6 12 17.8l9-5.2"/><path d="M3 17 12 22.2 21 17"/>
+            </svg>
+          </div>
+          <span class="level level-also" data-ru="Дополнительно" data-en="Secondary">Secondary</span>
+        </div>
+        <h3 data-ru="Flutter · Android и iOS" data-en="Flutter · Android &amp; iOS">Flutter · Android &amp; iOS</h3>
+        <p data-ru="Пишу приложения на Dart и Flutter в Visual Studio Code. Один проект собирается сразу под Android и iOS — с аккуратным интерфейсом и быстрыми обновлениями."
+           data-en="I write apps in Dart with Flutter inside Visual Studio Code. A single project builds for both Android and iOS, with a clean UI and fast updates.">
+          I write apps in Dart with Flutter inside Visual Studio Code. A single project builds for both Android and iOS, with a clean UI and fast updates.
+        </p>
+        <div class="tags">
+          <span class="tag">VS Code</span><span class="tag">Dart</span><span class="tag">Flutter</span><span class="tag">iOS</span>
+        </div>
+      </article>
+
+      <!-- 6. Web -->
+      <article class="card reveal">
+        <div class="card__top">
+          <div class="card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m8.5 8.5-4 3.5 4 3.5"/><path d="m15.5 8.5 4 3.5-4 3.5"/><path d="m13.5 5-3 14"/>
+            </svg>
+          </div>
+          <span class="level level-base" data-ru="Базовый уровень" data-en="Basic level">Basic level</span>
+        </div>
+        <h3 data-ru="Сайты — просто и аккуратно" data-en="Websites — simple and clean">Websites — simple and clean</h3>
+        <p data-ru="Делаю сайты в Visual Studio Code на HTML, CSS и JavaScript: простые лендинги, страницы услуг, небольшие портфолио. Аккуратная адаптивная вёрстка под телефон и ПК. Честно: в вебе я не специалист — сложные проекты, CMS и серверную часть лучше доверить отдельному разработчику."
+           data-en="I build simple sites in Visual Studio Code with HTML, CSS and JavaScript: landing pages, service pages, small portfolios, with clean responsive layouts for phone and desktop. Honestly: I'm not a web specialist — complex projects, CMS work and backends are better left to a dedicated developer.">
+          I build simple sites in Visual Studio Code with HTML, CSS and JavaScript: landing pages, service pages, small portfolios, with clean responsive layouts for phone and desktop. Honestly: I'm not a web specialist — complex projects, CMS work and backends are better left to a dedicated developer.
+        </p>
+        <div class="tags">
+          <span class="tag">VS Code</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
         </div>
       </article>
 
@@ -722,26 +786,38 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 <section id="process">
   <div class="wrap">
     <div class="center reveal" style="margin-bottom:34px">
-      <div class="eyebrow" data-ru="Процесс" data-en="Process">Процесс</div>
-      <h2 data-ru="Как устроена работа" data-en="How I work">Как устроена работа</h2>
+      <div class="eyebrow" data-ru="Процесс" data-en="Process">Process</div>
+      <h2 data-ru="Как устроена работа" data-en="How I work">How I work</h2>
     </div>
 
     <div class="steps">
       <div class="step reveal">
-        <h3 data-ru="Идея и обсуждение" data-en="Idea &amp; discussion">Идея и обсуждение</h3>
-        <p data-ru="Разбираем задачу, подбираем технологию под платформу и фиксируем, что именно должно получиться." data-en="We break down the task, choose the technology for the platform and define exactly what has to be delivered.">Разбираем задачу, подбираем технологию под платформу и фиксируем, что именно должно получиться.</p>
+        <h3 data-ru="Идея и обсуждение" data-en="Idea &amp; discussion">Idea &amp; discussion</h3>
+        <p data-ru="Разбираем задачу, подбираем технологию под платформу и сразу честно говорим, что я могу, а что лучше передать другому разработчику."
+           data-en="We break down the task, pick the technology for the platform, and I tell you upfront what I can do and what's better handed to another developer.">
+          We break down the task, pick the technology for the platform, and I tell you upfront what I can do and what's better handed to another developer.
+        </p>
       </div>
       <div class="step reveal">
-        <h3 data-ru="Прототип" data-en="Prototype">Прототип</h3>
-        <p data-ru="Собираю рабочий прототип интерфейса или основной механики, чтобы вы увидели результат до основной разработки." data-en="I assemble a working UI prototype or core mechanic so you see the result before the main build.">Собираю рабочий прототип интерфейса или основной механики, чтобы вы увидели результат до основной разработки.</p>
+        <h3 data-ru="Прототип" data-en="Prototype">Prototype</h3>
+        <p data-ru="Собираю рабочий прототип интерфейса или основной механики, чтобы вы увидели результат до основной разработки."
+           data-en="I assemble a working UI prototype or core mechanic so you see the result before the main build.">
+          I assemble a working UI prototype or core mechanic so you see the result before the main build.
+        </p>
       </div>
       <div class="step reveal">
-        <h3 data-ru="Разработка" data-en="Development">Разработка</h3>
-        <p data-ru="Пишу код, настраиваю базу данных и сети, тестирую на разных экранах и устройствах." data-en="I write the code, set up database and networking, and test across screen sizes and devices.">Пишу код, настраиваю базу данных и сети, тестирую на разных экранах и устройствах.</p>
+        <h3 data-ru="Разработка" data-en="Development">Development</h3>
+        <p data-ru="Пишу код, настраиваю базу данных и сети, тестирую на разных экранах и устройствах."
+           data-en="I write the code, set up database and networking, and test across screen sizes and devices.">
+          I write the code, set up database and networking, and test across screen sizes and devices.
+        </p>
       </div>
       <div class="step reveal">
-        <h3 data-ru="Выпуск и поддержка" data-en="Release &amp; support">Выпуск и поддержка</h3>
-        <p data-ru="Собираю релиз, публикую в Google Play и помогаю с обновлениями и доработками после запуска." data-en="I build the release, publish it on Google Play and help with updates and improvements after launch.">Собираю релиз, публикую в Google Play и помогаю с обновлениями и доработками после запуска.</p>
+        <h3 data-ru="Выпуск и поддержка" data-en="Release &amp; support">Release &amp; support</h3>
+        <p data-ru="Собираю релиз, публикую в Google Play и помогаю с обновлениями и доработками после запуска."
+           data-en="I build the release, publish it on Google Play and help with updates and improvements after launch.">
+          I build the release, publish it on Google Play and help with updates and improvements after launch.
+        </p>
       </div>
     </div>
   </div>
@@ -751,11 +827,11 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 <section id="contact">
   <div class="wrap">
     <div class="contact-card reveal">
-      <div class="eyebrow" data-ru="Контакты" data-en="Contact">Контакты</div>
-      <h2 data-ru="Давайте обсудим ваш проект" data-en="Let's talk about your project">Давайте обсудим ваш проект</h2>
-      <p class="lead" data-ru="Опишите идею приложения, сайта или игры — отвечу в Telegram или на почту и подскажу, как лучше её реализовать."
-         data-en="Describe your app, website or game idea — I'll reply on Telegram or email and suggest the best way to build it.">
-        Опишите идею приложения, сайта или игры — отвечу в Telegram или на почту и подскажу, как лучше её реализовать.
+      <div class="eyebrow" data-ru="Контакты" data-en="Contact">Contact</div>
+      <h2 data-ru="Давайте обсудим ваш проект" data-en="Let's talk about your project">Let's talk about your project</h2>
+      <p class="lead" data-ru="Опишите идею игры, приложения или сайта — отвечу в Telegram или на почту и честно скажу, что я могу взять, а что лучше сделать с партнёром."
+         data-en="Describe your game, app or website idea — I'll reply on Telegram or email and honestly tell you what I can take on and what's better done with a partner.">
+        Describe your game, app or website idea — I'll reply on Telegram or email and honestly tell you what I can take on and what's better done with a partner.
       </p>
 
       <div class="links">
@@ -767,7 +843,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
             <span data-ru="Email" data-en="Email">Email</span>
             <b>greatbiron@gmail.com</b>
           </div>
-          <span class="arrow" aria-hidden="true">→</span>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
         </a>
 
         <a class="link-row" href="https://t.me/Biron1gg" target="_blank" rel="noopener">
@@ -778,16 +854,16 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
             <span data-ru="Telegram" data-en="Telegram">Telegram</span>
             <b>@Biron1gg</b>
           </div>
-          <span class="arrow" aria-hidden="true">→</span>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
         </a>
 
         <a class="link-row" href="https://play.google.com/store/apps/dev?id=5305394579066389868" target="_blank" rel="noopener">
           <img src="playstore_logo.png" alt="" width="24" height="24" style="width:24px;height:24px;object-fit:contain">
           <div>
             <span data-ru="Google Play" data-en="Google Play">Google Play</span>
-            <b data-ru="Все мои приложения" data-en="All my apps">Все мои приложения</b>
+            <b data-ru="Все мои приложения" data-en="All my apps">All my apps</b>
           </div>
-          <span class="arrow" aria-hidden="true">→</span>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
         </a>
 
         <a class="link-row" href="https://github.com/biron2" target="_blank" rel="noopener">
@@ -798,7 +874,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
             <span>GitHub</span>
             <b>biron2</b>
           </div>
-          <span class="arrow" aria-hidden="true">→</span>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
         </a>
       </div>
     </div>
@@ -810,9 +886,9 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 <footer class="footer">
   <div class="wrap footer__inner">
     <div>
-      <strong>Biron Apps</strong> — <span data-ru="разработка приложений и игр" data-en="app &amp; game development">разработка приложений и игр</span>
+      <strong>Biron Apps</strong> &mdash; <span data-ru="разработка игр и приложений" data-en="game &amp; app development">game &amp; app development</span>
     </div>
-    <div>© <span id="year">2026</span> · <a href="https://t.me/Biron1gg" style="color:var(--brand-2)">@Biron1gg</a></div>
+    <div>&copy; <span id="year">2026</span> &middot; <a href="https://t.me/Biron1gg" style="color:var(--brand-2)">@Biron1gg</a></div>
   </div>
 </footer>
 
@@ -820,11 +896,12 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 (function () {
   'use strict';
 
-  /* ---------- Переключатель языка RU / EN ---------- */
+  /* ---------- Переключатель языка RU / EN (по умолчанию — EN) ---------- */
   var root = document.documentElement;
+  var DEFAULT_LANG = 'en';
   var TITLES = {
-    ru: 'Biron Apps — разработка приложений и игр',
-    en: 'Biron Apps — App & Game Developer'
+    ru: 'Biron Apps — разработка игр на Unity и приложений',
+    en: 'Biron Apps — Unity Developer: Games, Apps & Websites'
   };
 
   function setLang(lang) {
@@ -846,8 +923,8 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 
   var stored = null;
   try { stored = localStorage.getItem('biron-lang'); } catch (e) {}
-  var initial = stored || ((navigator.language || 'ru').slice(0, 2).toLowerCase() === 'en' ? 'en' : 'ru');
-  setLang(initial === 'en' ? 'en' : 'ru');
+  var initial = (stored === 'ru' || stored === 'en') ? stored : DEFAULT_LANG;
+  setLang(initial);
 
   /* ---------- Мобильное меню ---------- */
   var burger = document.getElementById('burger');
