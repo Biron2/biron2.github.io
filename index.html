@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Biron Apps — Unity Developer: Games, Apps &amp; Websites</title>
-<meta name="description" content="Biron Apps is a Unity developer making 2D and 3D games for PC, Android and iOS — both offline and online multiplayer. Also Java and Flutter apps, plus simple websites.">
+<title>Biron Apps — Unity games, apps and websites</title>
+<meta name="description" content="Biron is a Unity developer making 2D and 3D games for PC, Android and iOS — both offline and online multiplayer. Also Java and Flutter apps, plus simple websites.">
 <meta name="theme-color" content="#0b0f17">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Biron Apps — Unity Developer: Games, Apps &amp; Websites">
+<meta property="og:title" content="Biron Apps — Unity games, apps and websites">
 <meta property="og:description" content="Unity games for PC and mobile — offline and multiplayer online. Secondary work: Java and Flutter apps, plus simple websites.">
 <meta property="og:image" content="https://biron2.github.io/logo.png">
 <link rel="icon" href="logo.png" type="image/png">
@@ -124,7 +124,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   font-weight:650;
   font-size:.98rem;
   cursor:pointer;
-  transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease;
   -webkit-tap-highlight-color:transparent;
 }
 .btn:hover{transform:translateY(-2px);background:var(--surface-strong);border-color:rgba(255,255,255,.2)}
@@ -132,18 +132,8 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 .btn:focus-visible{outline:2px solid var(--brand-2);outline-offset:3px}
 .btn svg{width:20px;height:20px;flex:none}
 
-.btn-primary{
-  background:var(--grad);
-  border-color:transparent;
-  color:#04121f;
-  box-shadow:0 10px 26px -12px rgba(59,130,246,.9);
-}
-.btn-primary:hover{background:var(--grad);filter:brightness(1.08)}
-
 .btn-play{background:var(--green);border-color:transparent;color:#fff}
 .btn-play:hover{filter:brightness(1.08)}
-
-.btn-ghost{background:transparent}
 
 /* ============ 3. Шапка ============ */
 .header{
@@ -249,34 +239,9 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   box-shadow:0 18px 46px -18px rgba(59,130,246,.9);
   border:1px solid var(--border);
 }
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:7px 15px;
-  border-radius:999px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  font-size:.82rem;
-  font-weight:650;
-  color:var(--muted);
-  margin-bottom:18px;
-}
-.dot{
-  width:8px;height:8px;border-radius:50%;
-  background:#34d399;
-  box-shadow:0 0 0 4px rgba(52,211,153,.18);
-  animation:pulse 2.2s infinite;
-}
-@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(52,211,153,0)}}
 
 .hero .lead{max-width:60ch;margin-inline:auto}
-.hero__nick{
-  color:var(--muted);
-  font-size:.92rem;
-  font-weight:600;
-  margin:calc(-.4em) 0 1.1em;
-}
+
 .hero__cta{
   display:flex;
   flex-wrap:wrap;
@@ -284,7 +249,6 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   justify-content:center;
   margin-top:28px;
 }
-.hero__cta .btn{flex:1 1 220px;max-width:320px}
 
 .platforms{
   display:flex;
@@ -365,7 +329,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   font-family:ui-monospace,'SF Mono',Consolas,monospace;
 }
 
-/* ============ 6. Обо мне / шаги ============ */
+/* ============ 6. Обо мне ============ */
 .split{display:grid;gap:24px;grid-template-columns:1fr;align-items:center}
 
 .note{
@@ -404,28 +368,6 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   background-clip:text;
   color:transparent;
 }
-
-.steps{display:grid;gap:14px;grid-template-columns:1fr;counter-reset:s}
-.step{
-  padding:20px;
-  border-radius:var(--radius);
-  background:var(--surface);
-  border:1px solid var(--border);
-}
-.step::before{
-  counter-increment:s;
-  content:counter(s);
-  display:grid;place-items:center;
-  width:32px;height:32px;
-  margin-bottom:12px;
-  border-radius:10px;
-  background:var(--grad);
-  color:#04121f;
-  font-weight:800;
-  font-size:.9rem;
-}
-.step h3{margin-bottom:6px}
-.step p{color:var(--muted);font-size:.95rem;margin:0}
 
 /* ============ 7. Контакты ============ */
 .contact-card{
@@ -469,7 +411,6 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 @media (min-width:600px){
   .grid{grid-template-columns:repeat(2,1fr)}
   .facts{grid-template-columns:repeat(2,1fr)}
-  .steps{grid-template-columns:repeat(2,1fr)}
   .links{grid-template-columns:repeat(2,1fr)}
 }
 
@@ -483,9 +424,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 @media (min-width:900px){
   :root{--header-h:68px}
   .grid{grid-template-columns:repeat(3,1fr)}
-  .steps{grid-template-columns:repeat(4,1fr)}
   .split{grid-template-columns:1fr 1fr;gap:40px}
-  .hero__cta .btn{flex:0 1 auto}
   .links{grid-template-columns:repeat(2,1fr)}
 }
 
@@ -514,7 +453,6 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
     <nav class="nav" id="nav">
       <a href="#about" data-ru="Обо мне" data-en="About">About</a>
       <a href="#skills" data-ru="Навыки" data-en="Skills">Skills</a>
-      <a href="#process" data-ru="Как работаю" data-en="Process">Process</a>
       <a href="#contact" data-ru="Контакты" data-en="Contact">Contact</a>
     </nav>
 
@@ -533,7 +471,6 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
     <div class="mobile-menu" id="mobile-menu">
       <a href="#about" data-ru="Обо мне" data-en="About">About</a>
       <a href="#skills" data-ru="Навыки" data-en="Skills">Skills</a>
-      <a href="#process" data-ru="Как работаю" data-en="Process">Process</a>
       <a href="#contact" data-ru="Контакты" data-en="Contact">Contact</a>
     </div>
   </div>
@@ -546,25 +483,17 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   <div class="wrap">
     <img class="avatar" src="logo.png" alt="Biron Apps logo">
 
-    <div class="badge">
-      <span class="dot"></span>
-      <span data-ru="Основной стек — Unity" data-en="Main stack — Unity">Main stack — Unity</span>
-    </div>
-
     <h1>
       <span data-ru="Привет, я " data-en="Hi, I'm ">Hi, I'm </span><span class="grad-text">Biron</span><br>
       <span data-ru="разработчик игр на Unity" data-en="Unity game developer">Unity game developer</span>
     </h1>
 
-    <p class="hero__nick" data-ru="(Бирон — мой никнейм)" data-en="(Biron is my nickname)">(Biron is my nickname)</p>
-
-    <p class="lead" data-ru="В основном я делаю игры на Unity: 2D и 3D для ПК и телефонов — оффлайн и онлайн с мультиплеером. Дополнительно беру приложения: нативные на Java в Android Studio и кроссплатформенные на Flutter (Dart). Сайты тоже делаю, но в веб-разработке у меня меньше всего опыта."
-       data-en="Mostly I build games in Unity: 2D and 3D for PC and phones — both offline and online with multiplayer. On top of that I take app projects: native ones in Java with Android Studio and cross-platform ones in Flutter (Dart). I build websites too, but web development is where I have the least experience.">
-      Mostly I build games in Unity: 2D and 3D for PC and phones — both offline and online with multiplayer. On top of that I take app projects: native ones in Java with Android Studio and cross-platform ones in Flutter (Dart). I build websites too, but web development is where I have the least experience.
+    <p class="lead" data-ru="Делаю игры на Unity: 2D и 3D для ПК и телефонов — оффлайн и онлайн с мультиплеером. Ещё делаю приложения — на Java и на Flutter, а также сайты."
+       data-en="I build games in Unity: 2D and 3D for PC and phones — both offline and online with multiplayer. I also build apps, in Java and Flutter, and websites.">
+      I build games in Unity: 2D and 3D for PC and phones — both offline and online with multiplayer. I also build apps, in Java and Flutter, and websites.
     </p>
 
     <div class="hero__cta">
-      <a class="btn btn-primary" href="#contact" data-ru="Обсудить проект" data-en="Discuss a project">Discuss a project</a>
       <a class="btn btn-play" href="https://play.google.com/store/apps/dev?id=5305394579066389868" target="_blank" rel="noopener">
         <img src="playstore_logo.png" alt="" width="24" height="24" style="width:24px;height:24px;object-fit:contain">
         <span data-ru="Мои приложения в Play Market" data-en="My apps on Play Market">My apps on Play Market</span>
@@ -589,30 +518,29 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 <section id="about">
   <div class="wrap split">
     <div class="reveal">
-      <div class="eyebrow" data-ru="Обо мне" data-en="About me">About me</div>
-      <h2 data-ru="Основное — это Unity" data-en="Unity is my main thing">Unity is my main thing</h2>
-      <p data-ru="Бирон — это мой никнейм, под ним меня обычно и зовут. Основное, чем я занимаюсь, — игры на Unity на C#. Это та область, в которой я сильнее всего: довожу игру от идеи и прототипа до готовой сборки под ПК, Android и iOS."
-         data-en="Biron is my nickname — that's what people usually call me. What I mainly do is games in Unity with C#. That's the area I'm strongest in: I take a game from the idea and the prototype all the way to a finished build for PC, Android and iOS.">
-        Biron is my nickname — that's what people usually call me. What I mainly do is games in Unity with C#. That's the area I'm strongest in: I take a game from the idea and the prototype all the way to a finished build for PC, Android and iOS.
+      <h2 data-ru="Обо мне" data-en="About me">About me</h2>
+      <p data-ru="Бирон — мой никнейм. Основное, чем я занимаюсь, — игры на Unity на C#."
+         data-en="Biron is my nickname. The main thing I do is games in Unity with C#.">
+        Biron is my nickname. The main thing I do is games in Unity with C#.
       </p>
       <p data-ru="Делаю и оффлайн-игры — сохранения, уровни, персонаж, инвентарь, — и онлайн-игры с мультиплеером, синхронизацией игроков и рейтингами. Один проект могу собрать сразу и под телефон, и под ПК."
          data-en="I build both offline games — saves, levels, character, inventory — and online games with multiplayer, player sync and leaderboards. A single project can build for both phone and PC.">
         I build both offline games — saves, levels, character, inventory — and online games with multiplayer, player sync and leaderboards. A single project can build for both phone and PC.
       </p>
-      <p data-ru="Помимо Unity я делаю мобильные приложения: нативные на Java в Android Studio и кроссплатформенные на Dart и Flutter в Visual Studio Code — одна кодовая база, сразу под Android и iOS."
-         data-en="Besides Unity I build mobile apps: native ones in Java with Android Studio, and cross-platform ones in Dart with Flutter inside Visual Studio Code — one codebase for Android and iOS.">
-        Besides Unity I build mobile apps: native ones in Java with Android Studio, and cross-platform ones in Dart with Flutter inside Visual Studio Code — one codebase for Android and iOS.
+      <p data-ru="Ещё делаю мобильные приложения: нативные на Java в Android Studio и кроссплатформенные на Dart и Flutter в Visual Studio Code — одна кодовая база, сразу под Android и iOS."
+         data-en="I also build mobile apps: native ones in Java with Android Studio, and cross-platform ones in Dart with Flutter inside Visual Studio Code — one codebase for Android and iOS.">
+        I also build mobile apps: native ones in Java with Android Studio, and cross-platform ones in Dart with Flutter inside Visual Studio Code — one codebase for Android and iOS.
       </p>
-      <p data-ru="Сайты на HTML и CSS я тоже делаю, но честно скажу: в веб-разработке я не сильный специалист. Беру в основном простые сайты и лендинги."
-         data-en="I do build websites with HTML and CSS, but let me be honest: I'm not a strong web developer. I mainly take on simple sites and landing pages.">
-        I do build websites with HTML and CSS, but let me be honest: I'm not a strong web developer. I mainly take on simple sites and landing pages.
+      <p data-ru="Сайты на HTML и CSS тоже делаю, но в вебе я не сильный специалист — это в основном простые сайты и лендинги."
+         data-en="I do build websites with HTML and CSS, but I'm not a strong web developer — mostly simple sites and landing pages.">
+        I do build websites with HTML and CSS, but I'm not a strong web developer — mostly simple sites and landing pages.
       </p>
 
       <div class="note">
-        <b data-ru="Честно про сложный веб" data-en="Honest note about complex web work">Honest note about complex web work</b>
-        <p data-ru="Если задача сложная — интернет-магазин, портал, CMS, нестандартная серверная часть — скажите сразу. Я предупрежу заранее: возьму её только вместе с партнёром или передам отдельному веб-разработчику, чтобы вы не потратили время и деньги."
-           data-en="If the task is complex — an online store, a portal, a CMS, a non-standard backend — tell me upfront. I'll warn you in advance: I'll only take it together with a partner or hand it over to a dedicated web developer, so you don't waste time and money.">
-          If the task is complex — an online store, a portal, a CMS, a non-standard backend — tell me upfront. I'll warn you in advance: I'll only take it together with a partner or hand it over to a dedicated web developer, so you don't waste time and money.
+        <b data-ru="Что не делаю" data-en="What I don't do">What I don't do</b>
+        <p data-ru="Интернет-магазины, порталы, CMS и нестандартную серверную часть не делаю — это не моя область. Скажу об этом сразу, чтобы не тратить время."
+           data-en="Online stores, portals, CMS work and non-standard backends aren't for me — that's not my area. I'd rather say so upfront than waste your time.">
+          Online stores, portals, CMS work and non-standard backends aren't for me — that's not my area. I'd rather say so upfront than waste your time.
         </p>
       </div>
     </div>
@@ -643,7 +571,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
         <div class="fact__num">04</div>
         <div>
           <b data-ru="Сайты — базово" data-en="Websites — basic level">Websites — basic level</b>
-          <p data-ru="Простые адаптивные сайты и лендинги. Не основной профиль, беру не все задачи." data-en="Simple responsive sites and landing pages. Not my main profile — I don't take on every task.">Simple responsive sites and landing pages. Not my main profile — I don't take on every task.</p>
+          <p data-ru="Простые адаптивные сайты и лендинги." data-en="Simple responsive sites and landing pages.">Simple responsive sites and landing pages.</p>
         </div>
       </div>
     </div>
@@ -654,12 +582,11 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 <section id="skills">
   <div class="wrap">
     <div class="center reveal" style="margin-bottom:34px">
-      <div class="eyebrow" data-ru="Что я умею" data-en="What I do">What I do</div>
       <h2 data-ru="Инструменты и технологии" data-en="Tools &amp; technologies">Tools &amp; technologies</h2>
       <p class="lead" style="max-width:56ch;margin-inline:auto"
-         data-ru="Unity — моя основная специализация и то, что я делаю лучше всего. Приложения тоже делаю, но опыта в них заметно меньше, а веб — самый слабый пункт."
-         data-en="Unity is my main specialty and what I do best. I also build apps, but I have noticeably less experience there, and web is my weakest area.">
-        Unity is my main specialty and what I do best. I also build apps, but I have noticeably less experience there, and web is my weakest area.
+         data-ru="Основное — Unity. Приложения тоже делаю, но с меньшим опытом, а веб — самый слабый пункт."
+         data-en="Unity is the main one. I also build apps, but with less experience, and web is my weakest area.">
+        Unity is the main one. I also build apps, but with less experience, and web is my weakest area.
       </p>
     </div>
 
@@ -677,9 +604,9 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
           <span class="level level-main" data-ru="Основное" data-en="Main">Main</span>
         </div>
         <h3 data-ru="Игры на Unity: ПК и телефон" data-en="Unity games: PC &amp; mobile">Unity games: PC &amp; mobile</h3>
-        <p data-ru="Это моя основная работа: игры на Unity на C#, 2D и 3D. Собираю одну игру сразу под ПК (Windows) и под телефоны — Android и iOS, с удобным управлением под тачскрин."
-           data-en="This is my main work: games in Unity with C#, 2D and 3D. One build for PC (Windows) and for phones — Android and iOS, with touch-friendly controls.">
-          This is my main work: games in Unity with C#, 2D and 3D. One build for PC (Windows) and for phones — Android and iOS, with touch-friendly controls.
+        <p data-ru="Игры на Unity на C#, 2D и 3D. Собираю одну игру сразу под ПК (Windows) и под телефоны — Android и iOS, с удобным управлением под тачскрин."
+           data-en="Games in Unity with C#, 2D and 3D. One build for PC (Windows) and for phones — Android and iOS, with touch-friendly controls.">
+          Games in Unity with C#, 2D and 3D. One build for PC (Windows) and for phones — Android and iOS, with touch-friendly controls.
         </p>
         <div class="tags">
           <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">2D / 3D</span><span class="tag">Android</span>
@@ -697,9 +624,9 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
           <span class="level level-main" data-ru="Основное" data-en="Main">Main</span>
         </div>
         <h3 data-ru="Оффлайн-игры" data-en="Offline games">Offline games</h3>
-        <p data-ru="Делаю одиночные игры на Unity, которые работают без интернета: сохранение прогресса, уровни, инвентарь, персонаж и система заданий — всё считается локально на устройстве."
-           data-en="I build single-player Unity games that work without internet: save system, levels, inventory, character and quests — all handled locally on the device.">
-          I build single-player Unity games that work without internet: save system, levels, inventory, character and quests — all handled locally on the device.
+        <p data-ru="Одиночные игры, которые работают без интернета: сохранение прогресса, уровни, инвентарь, персонаж и система заданий — всё считается локально на устройстве."
+           data-en="Single-player games that work without internet: save system, levels, inventory, character and quests — all handled locally on the device.">
+          Single-player games that work without internet: save system, levels, inventory, character and quests — all handled locally on the device.
         </p>
         <div class="tags">
           <span class="tag">Unity</span><span class="tag">Local save</span><span class="tag">UI / UX</span>
@@ -717,9 +644,9 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
           <span class="level level-main" data-ru="Основное" data-en="Main">Main</span>
         </div>
         <h3 data-ru="Онлайн-игры и мультиплеер" data-en="Online &amp; multiplayer games">Online &amp; multiplayer games</h3>
-        <p data-ru="Онлайн-игры на Unity: сетевой мультиплеер, синхронизация игроков, серверная логика, логины и рейтинги. Игра работает как для одиночной, так и для сетевой компании."
-           data-en="Online Unity games: network multiplayer, player sync, server-side logic, logins and leaderboards — playable solo or with friends online.">
-          Online Unity games: network multiplayer, player sync, server-side logic, logins and leaderboards — playable solo or with friends online.
+        <p data-ru="Сетевой мультиплеер, синхронизация игроков, серверная логика, логины и рейтинги. Игра работает как для одиночной, так и для сетевой компании."
+           data-en="Network multiplayer, player sync, server-side logic, logins and leaderboards — playable solo or with friends online.">
+          Network multiplayer, player sync, server-side logic, logins and leaderboards — playable solo or with friends online.
         </p>
         <div class="tags">
           <span class="tag">Unity Netcode</span><span class="tag">Photon</span><span class="tag">Server</span>
@@ -737,9 +664,9 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
           <span class="level level-also" data-ru="Дополнительно" data-en="Secondary">Secondary</span>
         </div>
         <h3 data-ru="Приложения для Android" data-en="Android apps">Android apps</h3>
-        <p data-ru="Разрабатываю нативные приложения на Java в Android Studio: экраны, бизнес-логика, работа с интернетом и локальным хранилищем, авторизация, публикация в Google Play. Опыта здесь меньше, чем в Unity, но задачи беру."
-           data-en="I build native apps in Java with Android Studio: screens, business logic, networking and local storage, authentication, Play Store release. I have less experience here than with Unity, but I do take on projects.">
-          I build native apps in Java with Android Studio: screens, business logic, networking and local storage, authentication, Play Store release. I have less experience here than with Unity, but I do take on projects.
+        <p data-ru="Нативные приложения на Java в Android Studio: экраны, бизнес-логика, работа с интернетом и локальным хранилищем, авторизация, публикация в Google Play. Опыта здесь меньше, чем в Unity."
+           data-en="Native apps in Java with Android Studio: screens, business logic, networking and local storage, authentication, Play Store release. I have less experience here than with Unity.">
+          Native apps in Java with Android Studio: screens, business logic, networking and local storage, authentication, Play Store release. I have less experience here than with Unity.
         </p>
         <div class="tags">
           <span class="tag">Android Studio</span><span class="tag">Java</span><span class="tag">Gradle</span><span class="tag">Git</span>
@@ -757,9 +684,9 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
           <span class="level level-also" data-ru="Дополнительно" data-en="Secondary">Secondary</span>
         </div>
         <h3 data-ru="Flutter · Android и iOS" data-en="Flutter · Android &amp; iOS">Flutter · Android &amp; iOS</h3>
-        <p data-ru="Пишу приложения на Dart и Flutter в Visual Studio Code. Один проект собирается сразу под Android и iOS — с аккуратным интерфейсом и быстрыми обновлениями."
-           data-en="I write apps in Dart with Flutter inside Visual Studio Code. A single project builds for both Android and iOS, with a clean UI and fast updates.">
-          I write apps in Dart with Flutter inside Visual Studio Code. A single project builds for both Android and iOS, with a clean UI and fast updates.
+        <p data-ru="Приложения на Dart и Flutter в Visual Studio Code. Один проект собирается сразу под Android и iOS — с аккуратным интерфейсом и быстрыми обновлениями."
+           data-en="Apps in Dart with Flutter inside Visual Studio Code. A single project builds for both Android and iOS, with a clean UI and fast updates.">
+          Apps in Dart with Flutter inside Visual Studio Code. A single project builds for both Android and iOS, with a clean UI and fast updates.
         </p>
         <div class="tags">
           <span class="tag">VS Code</span><span class="tag">Dart</span><span class="tag">Flutter</span><span class="tag">iOS</span>
@@ -777,9 +704,9 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
           <span class="level level-base" data-ru="Базовый уровень" data-en="Basic level">Basic level</span>
         </div>
         <h3 data-ru="Сайты — просто и аккуратно" data-en="Websites — simple and clean">Websites — simple and clean</h3>
-        <p data-ru="Делаю сайты в Visual Studio Code на HTML, CSS и JavaScript: простые лендинги, страницы услуг, небольшие портфолио. Аккуратная адаптивная вёрстка под телефон и ПК. Честно: в вебе я не специалист — сложные проекты, CMS и серверную часть лучше доверить отдельному разработчику."
-           data-en="I build simple sites in Visual Studio Code with HTML, CSS and JavaScript: landing pages, service pages, small portfolios, with clean responsive layouts for phone and desktop. Honestly: I'm not a web specialist — complex projects, CMS work and backends are better left to a dedicated developer.">
-          I build simple sites in Visual Studio Code with HTML, CSS and JavaScript: landing pages, service pages, small portfolios, with clean responsive layouts for phone and desktop. Honestly: I'm not a web specialist — complex projects, CMS work and backends are better left to a dedicated developer.
+        <p data-ru="Сайты в Visual Studio Code на HTML, CSS и JavaScript: простые лендинги, страницы услуг, небольшие портфолио. Аккуратная адаптивная вёрстка под телефон и ПК. В вебе я не специалист — сложные проекты, CMS и серверную часть не делаю."
+           data-en="Sites in Visual Studio Code with HTML, CSS and JavaScript: simple landing pages, service pages, small portfolios, with clean responsive layouts for phone and desktop. I'm not a web specialist — I don't take on complex projects, CMS work or backends.">
+          Sites in Visual Studio Code with HTML, CSS and JavaScript: simple landing pages, service pages, small portfolios, with clean responsive layouts for phone and desktop. I'm not a web specialist — I don't take on complex projects, CMS work or backends.
         </p>
         <div class="tags">
           <span class="tag">VS Code</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
@@ -790,56 +717,14 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   </div>
 </section>
 
-<!-- ============ ПРОЦЕСС ============ -->
-<section id="process">
-  <div class="wrap">
-    <div class="center reveal" style="margin-bottom:34px">
-      <div class="eyebrow" data-ru="Процесс" data-en="Process">Process</div>
-      <h2 data-ru="Как устроена работа" data-en="How I work">How I work</h2>
-    </div>
-
-    <div class="steps">
-      <div class="step reveal">
-        <h3 data-ru="Идея и обсуждение" data-en="Idea &amp; discussion">Idea &amp; discussion</h3>
-        <p data-ru="Разбираем задачу, подбираем технологию под платформу и сразу честно говорим, что я могу, а что лучше передать другому разработчику."
-           data-en="We break down the task, pick the technology for the platform, and I tell you upfront what I can do and what's better handed to another developer.">
-          We break down the task, pick the technology for the platform, and I tell you upfront what I can do and what's better handed to another developer.
-        </p>
-      </div>
-      <div class="step reveal">
-        <h3 data-ru="Прототип" data-en="Prototype">Prototype</h3>
-        <p data-ru="Собираю рабочий прототип интерфейса или основной механики, чтобы вы увидели результат до основной разработки."
-           data-en="I assemble a working UI prototype or core mechanic so you see the result before the main build.">
-          I assemble a working UI prototype or core mechanic so you see the result before the main build.
-        </p>
-      </div>
-      <div class="step reveal">
-        <h3 data-ru="Разработка" data-en="Development">Development</h3>
-        <p data-ru="Пишу код, настраиваю базу данных и сети, тестирую на разных экранах и устройствах."
-           data-en="I write the code, set up database and networking, and test across screen sizes and devices.">
-          I write the code, set up database and networking, and test across screen sizes and devices.
-        </p>
-      </div>
-      <div class="step reveal">
-        <h3 data-ru="Выпуск и поддержка" data-en="Release &amp; support">Release &amp; support</h3>
-        <p data-ru="Собираю релиз, публикую в Google Play и помогаю с обновлениями и доработками после запуска."
-           data-en="I build the release, publish it on Google Play and help with updates and improvements after launch.">
-          I build the release, publish it on Google Play and help with updates and improvements after launch.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ КОНТАКТЫ ============ -->
 <section id="contact">
   <div class="wrap">
     <div class="contact-card reveal">
-      <div class="eyebrow" data-ru="Контакты" data-en="Contact">Contact</div>
-      <h2 data-ru="Давайте обсудим ваш проект" data-en="Let's talk about your project">Let's talk about your project</h2>
-      <p class="lead" data-ru="Опишите идею игры, приложения или сайта — отвечу в Telegram или на почту и честно скажу, что я могу взять, а что лучше сделать с партнёром."
-         data-en="Describe your game, app or website idea — I'll reply on Telegram or email and honestly tell you what I can take on and what's better done with a partner.">
-        Describe your game, app or website idea — I'll reply on Telegram or email and honestly tell you what I can take on and what's better done with a partner.
+      <h2 data-ru="Контакты" data-en="Contact">Contact</h2>
+      <p class="lead" data-ru="Написать можно в Telegram или на почту."
+         data-en="You can reach me on Telegram or by email.">
+        You can reach me on Telegram or by email.
       </p>
 
       <div class="links">
@@ -894,7 +779,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 <footer class="footer">
   <div class="wrap footer__inner">
     <div>
-      <strong>Biron Apps</strong> &mdash; <span data-ru="разработка игр и приложений" data-en="game &amp; app development">game &amp; app development</span>
+      <strong>Biron Apps</strong> &mdash; <span data-ru="игры, приложения и сайты" data-en="games, apps and websites">games, apps and websites</span>
     </div>
     <div>&copy; <span id="year">2026</span> &middot; <a href="https://t.me/Biron1gg" style="color:var(--brand-2)">@Biron1gg</a></div>
   </div>
@@ -908,8 +793,8 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   var root = document.documentElement;
   var DEFAULT_LANG = 'en';
   var TITLES = {
-    ru: 'Biron Apps — разработка игр на Unity и приложений',
-    en: 'Biron Apps — Unity Developer: Games, Apps & Websites'
+    ru: 'Biron Apps — игры на Unity, приложения и сайты',
+    en: 'Biron Apps — Unity games, apps and websites'
   };
 
   function setLang(lang) {
