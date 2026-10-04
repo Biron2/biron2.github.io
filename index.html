@@ -27,7 +27,6 @@
   --brand-2:#22d3ee;
   --brand-3:#8b5cf6;
   --grad:linear-gradient(120deg,var(--brand) 0%,var(--brand-2) 55%,var(--brand-3) 100%);
-  --green:#177a3c;
   --radius:18px;
   --radius-sm:12px;
   --shadow:0 10px 30px -12px rgba(0,0,0,.65);
@@ -110,32 +109,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 .muted{color:var(--muted)}
 .center{text-align:center}
 
-/* ============ 2. Кнопки ============ */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:13px 22px;
-  min-height:50px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:var(--surface);
-  font-weight:650;
-  font-size:.98rem;
-  cursor:pointer;
-  transition:transform .18s ease,background .18s ease,border-color .18s ease;
-  -webkit-tap-highlight-color:transparent;
-}
-.btn:hover{transform:translateY(-2px);background:var(--surface-strong);border-color:rgba(255,255,255,.2)}
-.btn:active{transform:translateY(0) scale(.98)}
-.btn:focus-visible{outline:2px solid var(--brand-2);outline-offset:3px}
-.btn svg{width:20px;height:20px;flex:none}
-
-.btn-play{background:var(--green);border-color:transparent;color:#fff}
-.btn-play:hover{filter:brightness(1.08)}
-
-/* ============ 3. Шапка ============ */
+/* ============ 2. Шапка ============ */
 .header{
   position:sticky;
   top:0;
@@ -225,7 +199,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 .mobile-menu a:hover{background:var(--surface);color:var(--text)}
 .mobile-menu.open{display:block}
 
-/* ============ 4. Hero ============ */
+/* ============ 3. Hero ============ */
 .hero{
   padding-block:clamp(40px,8vw,72px) clamp(44px,9vw,80px);
   text-align:center;
@@ -241,14 +215,6 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 }
 
 .hero .lead{max-width:60ch;margin-inline:auto}
-
-.hero__cta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center;
-  margin-top:28px;
-}
 
 .platforms{
   display:flex;
@@ -267,7 +233,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   color:var(--muted);
 }
 
-/* ============ 5. Карточки навыков ============ */
+/* ============ 4. Карточки навыков ============ */
 .grid{
   display:grid;
   gap:14px;
@@ -329,7 +295,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   font-family:ui-monospace,'SF Mono',Consolas,monospace;
 }
 
-/* ============ 6. Обо мне ============ */
+/* ============ 5. Обо мне ============ */
 .split{display:grid;gap:24px;grid-template-columns:1fr;align-items:center}
 
 .note{
@@ -369,7 +335,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
   color:transparent;
 }
 
-/* ============ 7. Контакты ============ */
+/* ============ 6. Контакты ============ */
 .contact-card{
   padding:clamp(24px,5vw,40px);
   border-radius:24px;
@@ -403,11 +369,11 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 }
 .footer__inner{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
 
-/* ============ 8. Анимации появления ============ */
+/* ============ 7. Анимации появления ============ */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* ============ 9. Адаптив ============ */
+/* ============ 8. Адаптив ============ */
 @media (min-width:600px){
   .grid{grid-template-columns:repeat(2,1fr)}
   .facts{grid-template-columns:repeat(2,1fr)}
@@ -429,7 +395,7 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
 }
 
 @media (hover:none){
-  .btn:hover,.card:hover,.link-row:hover{transform:none}
+  .card:hover,.link-row:hover{transform:none}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -492,13 +458,6 @@ section + section{border-top:1px solid rgba(255,255,255,.055)}
        data-en="I build games in Unity: 2D and 3D for PC and phones — both offline and online with multiplayer. I also build apps, in Java and Flutter, and websites.">
       I build games in Unity: 2D and 3D for PC and phones — both offline and online with multiplayer. I also build apps, in Java and Flutter, and websites.
     </p>
-
-    <div class="hero__cta">
-      <a class="btn btn-play" href="https://play.google.com/store/apps/dev?id=5305394579066389868" target="_blank" rel="noopener">
-        <img src="playstore_logo.png" alt="" width="24" height="24" style="width:24px;height:24px;object-fit:contain">
-        <span data-ru="Мои приложения в Play Market" data-en="My apps on Play Market">My apps on Play Market</span>
-      </a>
-    </div>
 
     <div class="platforms">
       <span class="chip" data-ru="Unity · C#" data-en="Unity · C#">Unity · C#</span>
